@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AppCompatActivity {
     private Button login;
@@ -39,6 +40,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
         mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        // Access a Cloud Firestore instance from your Activity
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
         initUI();
 
         signup.setOnClickListener(new View.OnClickListener(){
@@ -64,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
         userType = findViewById(R.id.radioG_login);
 
     }
+
 
     private void loginUser() {
         int selectedId = userType.getCheckedRadioButtonId();
