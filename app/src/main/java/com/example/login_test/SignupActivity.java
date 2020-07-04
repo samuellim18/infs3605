@@ -34,9 +34,7 @@ public class SignupActivity extends AppCompatActivity {
     private EditText email;
     private EditText pass;
     private EditText pass_C;
-    private String nameS , emailS , passS ,pass_CS , userTypeS;
-    private RadioGroup userType;
-    private RadioButton radioButton;
+    private String nameS , emailS , passS ,pass_CS ;
     private String TAG;
     private Button regButton;
     private FirebaseFirestore db;
@@ -48,9 +46,6 @@ public class SignupActivity extends AppCompatActivity {
         // Access a Cloud Firestore instance from your Activity
         db = FirebaseFirestore.getInstance();
         initializeUI();
-
-
-
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,13 +53,7 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
-
-
-
     }
-
-
-
 //    @Override
 //    public void onStart() {
 //        super.onStart();
@@ -77,19 +66,15 @@ private void initializeUI() {
     email =findViewById(R.id.et_email);
     pass =findViewById(R.id.et_password_r);
     pass_C =findViewById(R.id.et_repassword);
-    userType  =findViewById(R.id.radioG_reg);
     regButton = findViewById(R.id.btn_register);
 }
 
     private void regNewUser(){
-        int selectedId = userType.getCheckedRadioButtonId();
         nameS = name.getText().toString();
         emailS = email.getText().toString();
         passS = pass.getText().toString();
         pass_CS = pass_C.getText().toString();
         // find the radiobutton by returned id
-        radioButton = (RadioButton) findViewById(selectedId);
-        userTypeS = (String) radioButton.getText();
 
         if (TextUtils.isEmpty(emailS)) {
             Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
@@ -109,16 +94,16 @@ private void initializeUI() {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Map<String,Object> newUser = new HashMap<>();
                             newUser.put("name",nameS);
-                            System.out.println(nameS + emailS+userTypeS);
+                            System.out.println(nameS + emailS);
                             newUser.put("email", emailS );
-                            newUser.put("userType", userTypeS);
                             startActivity(new Intent(SignupActivity.this, MainActivity.class));
                             db.collection("users")
-                                    .add(newUser)
-                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                    .document(emailS)
+                                    .set(newUser)
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
-                                        public void onSuccess(DocumentReference documentReference) {
-                                            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                                        public void onSuccess(Void aVoid) {
+                                            Log.d(TAG, "DocumentSnapshot added!");
                                         }
                                     })
                                     .addOnFailureListener(new OnFailureListener() {
