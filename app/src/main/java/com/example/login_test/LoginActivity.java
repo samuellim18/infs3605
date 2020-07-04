@@ -23,23 +23,27 @@ import com.google.firebase.auth.FirebaseUser;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AppCompatActivity {
     private Button login;
     private Button signup;
     private FirebaseAuth mAuth;
     private EditText email,pass;
-    private RadioGroup userType;
-    private RadioButton radioButton;
     private String TAG;
-    private String emailS , passS, userTypeS;
+    private String emailS , passS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
         mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        // Access a Cloud Firestore instance from your Activity
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
         initUI();
+
 
         signup.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -61,14 +65,11 @@ public class LoginActivity extends AppCompatActivity {
         signup = findViewById(R.id.btn_signup);
         email = findViewById(R.id.et_email);
         pass = findViewById(R.id.et_password_l);
-        userType = findViewById(R.id.radioG_login);
 
     }
 
+
     private void loginUser() {
-        int selectedId = userType.getCheckedRadioButtonId();
-        radioButton = (RadioButton) findViewById(selectedId);
-        userTypeS = (String) radioButton.getText();
         emailS = email.getText().toString();
         passS = pass.getText().toString();
 
