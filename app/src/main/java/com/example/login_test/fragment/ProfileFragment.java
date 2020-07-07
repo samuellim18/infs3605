@@ -1,4 +1,4 @@
-package com.example.login_test;
+package com.example.login_test.fragment;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,6 +16,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.login_test.R;
+import com.example.login_test.UniversalImageLoader;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;

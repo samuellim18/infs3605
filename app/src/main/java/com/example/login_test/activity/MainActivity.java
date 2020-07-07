@@ -1,15 +1,18 @@
-package com.example.login_test;
-//test commit
+package com.example.login_test.activity;
+
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.login_test.fragment.DiscoverFragment;
+import com.example.login_test.fragment.ProfileFragment;
+import com.example.login_test.fragment.ProjectFragment;
+import com.example.login_test.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
