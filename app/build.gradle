@@ -70,5 +70,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:19.3.1'
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+
     implementation 'net.cachapa.expandablelayout:expandablelayout:2.9.2'
 }
