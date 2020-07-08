@@ -8,7 +8,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -23,6 +27,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.login_test.R;
 import com.example.login_test.UniversalImageLoader;
+import com.example.login_test.activity.LoginActivity;
+import com.example.login_test.activity.MainActivity;
+import com.example.login_test.activity.SignupActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -47,19 +54,39 @@ public class ProfileFragment extends Fragment
     RecyclerView myRecyclerView;
     HomeRecyclerViewAdapter adapter;
     CircleImageView profile_photo;
+    ImageView profile_menu;
     String TAG = "Profile ";
     String name;
-    TextView profileName;
-    String userType;
+    TextView profileName, profileDescription, profileEmail,profilePhone, profileSkills ;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    FirebaseUser currentUser = mAuth.getCurrentUser();
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReference();
+    String email = currentUser.getEmail();
     private static int RESULT_LOAD_IMAGE = 1;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-
+        setHasOptionsMenu(true);
         myRecyclerView = view.findViewById(R.id.recyclerview_project);
         profile_photo = view.findViewById(R.id.profile_photo);
+        profilePhone = view.findViewById(R.id.profilePhone);
         profileName = view.findViewById(R.id.profile_name);
+        profileDescription= view.findViewById(R.id.profileDescription);
+        profileEmail = view.findViewById(R.id.profileEmail);
+        profileSkills = view.findViewById(R.id.profileSkills);
+        profile_menu = view.findViewById(R.id.profile_menu1);
+        profile_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.getInstance().signOut();
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+            }
+        });
+
+        getData();
         img_arraylist.clear();
         for (int i = 0; i < 35; i++)
         {
@@ -82,14 +109,9 @@ public class ProfileFragment extends Fragment
             }
         });
 
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference();
-        String emailS = currentUser.getEmail();
-        System.out.println(emailS);
-        DocumentReference docRef = db.collection("users").document(emailS);
+
+        System.out.println(email);
+        DocumentReference docRef = db.collection("users").document(email);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -99,7 +121,6 @@ public class ProfileFragment extends Fragment
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                         name=document.getString("name");
                         profileName.setText(name);
-                        userType = document.getString("userType");
                     } else {
                         Log.d(TAG, "No such document");
                     }
@@ -110,6 +131,52 @@ public class ProfileFragment extends Fragment
             }
         });
         return view;
+    }
+
+
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        // TODO Add your menu entries here
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.profile_menu, menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Toast.makeText(getContext(), "Selected Item: " +item.getTitle(), Toast.LENGTH_SHORT).show();
+        switch (item.getItemId()) {
+            case R.id.edit_profile:
+                // do your code
+                return true;
+            case R.id.logout:
+                // do your code
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void getData(){
+        DocumentReference docRef = db.collection("users").document(email);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                        name=document.getString("name");
+                        profileName.setText(name);
+                        profileEmail.setText(email);
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+
+            }
+        });
     }
 
     /* @Override
