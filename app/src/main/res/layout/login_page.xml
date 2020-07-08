@@ -26,6 +26,7 @@
         android:layout_above="@id/et_email"
         android:layout_marginLeft="25dp" />
 
+    <!-- TODO: Remove login details in android:text later (this is for faster testing) -->
     <EditText
         android:id="@+id/et_password_l"
         android:layout_width="match_parent"
@@ -35,6 +36,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:padding="15dp"
+        android:text="123456"
         android:inputType="textPassword"
         android:layout_centerInParent="true"
         android:background="@drawable/et_custom"
@@ -49,6 +51,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/et_custom"
         android:hint="@string/e_mail"
+        android:text="s@yahoo.com"
         android:inputType="textEmailAddress"
         android:padding="15dp"
         android:textSize="15sp" />
@@ -60,7 +63,7 @@
         android:layout_below="@id/et_password_l"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp" />
 
     <Button
         android:id="@+id/btn_login"
@@ -72,7 +75,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
         android:textColor="@android:color/white"
-        android:text="@string/login"/>
+        android:text="@string/login" />
 
     <Button
         android:id="@+id/btn_signup"
@@ -84,8 +87,6 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
         android:textColor="@android:color/white"
-        android:text="Signup"/>
-
-
+        android:text="Signup" />
 
 </RelativeLayout>
