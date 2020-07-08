@@ -25,11 +25,8 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
                 android:layout_marginStart="59dp"
-                android:layout_marginLeft="59dp"
                 android:layout_marginEnd="12dp"
-                android:layout_marginRight="12dp"
                 app:srcCompat="@drawable/ic_menu_ham" />
 
         </RelativeLayout>
@@ -40,13 +37,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center" >
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -57,7 +55,6 @@
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/profile_photo"
-                            xmlns:app="http://schemas.android.com/apk/res-auto"
                             android:layout_width="@dimen/_80sdp"
                             android:layout_height="@dimen/_80sdp"
                             android:src="@android:color/holo_blue_light"
@@ -68,7 +65,7 @@
                             android:id="@+id/profile_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Profile name"
+                            android:text="@string/profile_name"
                             android:gravity="center"
                             android:textSize="@dimen/_12sdp"
                             android:textStyle="bold"
@@ -88,7 +85,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_28sdp"
                             android:background="@drawable/white_curve_background"
-                            android:text="follow"
+                            android:text="@string/follow"
                             android:textAllCaps="false"
                             android:textColor="@android:color/white"
                             android:textStyle="bold"
@@ -104,7 +101,7 @@
                             android:layout_marginRight="@dimen/_5sdp"
                             android:layout_marginTop="@dimen/_5sdp"
                             android:background="@drawable/white_curve_background"
-                            android:text="message"
+                            android:text="@string/message"
                             android:textAllCaps="false"
                             android:textColor="@android:color/white"
                             android:textStyle="bold"
@@ -127,7 +124,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="About Me:"
+                            android:text="@string/about_me"
                             android:gravity="center"
                             android:textSize="@dimen/_14sdp"
                             android:textStyle="bold"
@@ -149,7 +146,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Contact Detail :"
+                            android:text="@string/contact_detail"
                             android:gravity="center"
                             android:textSize="@dimen/_14sdp"
                             android:textStyle="bold"
@@ -172,7 +169,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="My Skills:"
+                            android:text="@string/my_skills"
                             android:gravity="center"
                             android:textSize="@dimen/_14sdp"
                             android:textStyle="bold"
@@ -190,7 +187,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Project Detail:"
+                        android:text="@string/my_projects"
                         android:gravity="center"
                         android:textSize="@dimen/_14sdp"
                         android:textStyle="bold"
