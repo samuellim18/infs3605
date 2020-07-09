@@ -16,11 +16,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Trending video"
+            android:fontFamily="@font/lato"
             android:gravity="center"
+            android:text="Trending video"
+            android:textColor="#2F87C7"
             android:textSize="@dimen/_14sdp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black" />
+            android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -49,6 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Trending video"
+                android:fontFamily="@font/lato"
                 android:textSize="@dimen/_16sdp"
                 android:layout_margin="@dimen/_10sdp"
                 android:textStyle="bold"
@@ -58,6 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="video text description"
+                android:fontFamily="@font/lato"
                 android:textSize="@dimen/_12sdp"
                 android:layout_margin="@dimen/_10sdp"
                 android:textColor="@android:color/black" />
