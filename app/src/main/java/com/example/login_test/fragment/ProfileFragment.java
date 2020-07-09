@@ -15,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.login_test.R;
 import com.example.login_test.UniversalImageLoader;
+import com.example.login_test.activity.EditProfileActivity;
 import com.example.login_test.activity.LoginActivity;
 import com.example.login_test.activity.MainActivity;
 import com.example.login_test.activity.SignupActivity;
@@ -52,11 +54,12 @@ public class ProfileFragment extends Fragment
     ArrayList<Integer> img_arraylist =new ArrayList<>();
     private Context mContext_f;
     RecyclerView myRecyclerView;
+    Button follow;
     HomeRecyclerViewAdapter adapter;
     CircleImageView profile_photo;
     ImageView profile_menu;
     String TAG = "Profile ";
-    String name;
+    String name,mobile_phone, skills,description;
     TextView profileName, profileDescription, profileEmail,profilePhone, profileSkills ;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -78,6 +81,14 @@ public class ProfileFragment extends Fragment
         profileEmail = view.findViewById(R.id.profileEmail);
         profileSkills = view.findViewById(R.id.profileSkills);
         profile_menu = view.findViewById(R.id.profile_menu1);
+        follow= view.findViewById(R.id.follow_btn);
+        follow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), EditProfileActivity.class));
+            }
+        });
+
         profile_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,7 +131,16 @@ public class ProfileFragment extends Fragment
                     if (document.exists()) {
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                         name=document.getString("name");
+                        mobile_phone=document.getString("mobile_phone");
+                        skills = document.getString("skills");
+                        description = document.getString("description");
                         profileName.setText(name);
+                        profilePhone.setText("Phone no: " + mobile_phone);
+                        profileSkills.setText("Skills: " + skills);
+                        profileDescription.setText("Description: " + description);
+
+
+                        System.out.println(document);
                     } else {
                         Log.d(TAG, "No such document");
                     }

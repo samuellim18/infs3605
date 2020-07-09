@@ -7,6 +7,8 @@
     android:orientation="vertical">
 
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
@@ -79,6 +81,8 @@
             android:background="@drawable/et_custom"
             android:textSize="15sp" />
 
+
+
         <EditText
             android:id="@+id/et_repassword"
             android:layout_width="match_parent"
@@ -92,30 +96,19 @@
             android:background="@drawable/et_custom"
             android:textSize="15sp" />
 
-        <RadioGroup
-            android:id="@+id/radioG_reg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+        <EditText
+            android:id="@+id/et_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/phone_no"
+            android:fontFamily="@font/lato"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp">
-
-            <RadioButton
-                android:id="@+id/radioButton4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Collaborator"
-                android:fontFamily="@font/lato"
-                />
-
-            <RadioButton
-                android:id="@+id/radioButton3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Investor"
-                android:fontFamily="@font/lato"
-                />
-        </RadioGroup>
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:padding="15dp"
+            android:inputType="number"
+            android:background="@drawable/et_custom"
+            android:textSize="15sp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
