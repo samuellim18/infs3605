@@ -11,54 +11,26 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_logo"
+            android:id="@+id/editP_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/lato"
-            android:gravity="center_horizontal"
-            android:text="Sign up."
+            android:text="Edit Profile"
             android:textAlignment="center"
-            android:textColor="#2F87C7"
-            android:textSize="30sp" />
-
-        <TextView
-            android:id="@+id/tv_subtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Welcome to your own creative home"
-            android:textSize="17sp"
-            android:fontFamily="@font/lato"
+            android:textSize="50sp"
             android:layout_marginStart="25dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="60dp"
+            android:gravity="center_horizontal"
             android:layout_marginLeft="25dp" />
 
-        <EditText
-            android:id="@+id/et_name"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/your_name"
-            android:fontFamily="@font/lato"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:padding="15dp"
-            android:inputType="textPersonName"
-            android:background="@drawable/et_custom"
-            android:textSize="15sp" />
-
-        <EditText
-            android:id="@+id/et_email"
+        <TextView
+            android:id="@+id/editP_tv_email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="@string/e_mail"
-            android:fontFamily="@font/lato"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
@@ -68,55 +40,65 @@
             android:textSize="15sp" />
 
         <EditText
-            android:id="@+id/et_password_r"
+            android:id="@+id/editP_name"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="@string/password"
-            android:fontFamily="@font/lato"
+            android:hint="@string/your_name"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:padding="15dp"
-            android:inputType="textPassword"
+            android:inputType="textPersonName"
             android:background="@drawable/et_custom"
             android:textSize="15sp" />
 
 
-
         <EditText
-            android:id="@+id/et_repassword"
+            android:id="@+id/editP_description"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="@string/re_type_password"
-            android:fontFamily="@font/lato"
+            android:hint="Description"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
             android:padding="15dp"
-            android:inputType="textPassword"
             android:background="@drawable/et_custom"
             android:textSize="15sp" />
 
         <EditText
-            android:id="@+id/et_mobile"
+            android:id="@+id/editP_mobile"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="@string/phone_no"
-            android:fontFamily="@font/lato"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:padding="15dp"
-            android:inputType="number"
+            android:inputType="phone"
             android:background="@drawable/et_custom"
             android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/editP_skills"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Skills"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:padding="15dp"
+            android:inputType="phone"
+            android:background="@drawable/et_custom"
+            android:textSize="15sp" />
+
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" >
+            android:layout_weight="1">
 
             <Button
-                android:id="@+id/btn_register"
+                android:id="@+id/edit_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -128,6 +110,8 @@
                 android:text="Sign up"
                 android:textColor="@android:color/white" />
 
+
         </RelativeLayout>
     </LinearLayout>
+
 </ScrollView>

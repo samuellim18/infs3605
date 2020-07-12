@@ -24,6 +24,7 @@
         android:background="@android:color/white"
         android:visibility="visible"
         app:itemIconTint="@drawable/tab_selector"
+        android:fontFamily="@font/lato"
         app:itemTextColor="@drawable/tab_selector"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_navigation" />

@@ -17,12 +17,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.SignupActivity" />
+        <activity android:name=".activity.EditProfileActivity"/>
         <activity
             android:name="com.example.login_test.activity.TrendingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.MainActivity">
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

@@ -30,5 +30,7 @@
     <string name="follow">Follow</string>
     <string name="message">Message</string>
     <string name="my_projects">Projects:</string>
+    <string name="phone_no">Phone Number (Optional) </string>
+
 
 </resources>

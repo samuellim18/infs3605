@@ -8,38 +8,54 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="50sp"
-        android:layout_marginStart="25dp"
-        android:layout_marginBottom="10dp"
         android:layout_above="@id/tv_subtitle"
-        android:layout_marginLeft="25dp" />
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="95dp"
+        android:fontFamily="@font/lato"
+        android:text="Welcome to Mudskipper"
+        android:textColor="#2F87C7"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/tv_title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tv_subtitle"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="41dp"
+        android:fontFamily="@font/lato"
+        android:text="Sign in."
+        android:textColor="#000000"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/tv_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tag"
-        android:textSize="17sp"
-        android:layout_marginStart="25dp"
-        android:layout_marginBottom="50dp"
         android:layout_above="@id/et_email"
-        android:layout_marginLeft="25dp" />
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="@font/lato"
+        android:textSize="17sp" />
 
     <!-- TODO: Remove login details in android:text later (this is for faster testing) -->
     <EditText
         android:id="@+id/et_password_l"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="@string/password"
+        android:layout_centerInParent="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/signup_btn"
+        android:fontFamily="@font/lato"
+        android:hint="@string/password"
+        android:inputType="textPassword"
         android:padding="15dp"
         android:text="123456"
-        android:inputType="textPassword"
-        android:layout_centerInParent="true"
-        android:background="@drawable/et_custom"
         android:textSize="15sp" />
 
     <EditText
@@ -49,11 +65,12 @@
         android:layout_above="@id/et_password_l"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/et_custom"
+        android:background="@drawable/signup_btn"
+        android:fontFamily="@font/lato"
         android:hint="@string/e_mail"
-        android:text="s@yahoo.com"
         android:inputType="textEmailAddress"
         android:padding="15dp"
+        android:text="s@yahoo.com"
         android:textSize="15sp" />
 
     <RadioGroup
@@ -70,23 +87,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/radioG_login"
-        android:background="@drawable/btn_custom"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
-        android:textColor="@android:color/white"
-        android:text="@string/login" />
+        android:layout_marginRight="20dp"
+        android:background="@drawable/orange_btn"
+        android:text="@string/login"
+        android:fontFamily="@font/lato"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/btn_signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_login"
-        android:background="@drawable/btn_custom"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
-        android:textColor="@android:color/white"
-        android:text="Signup" />
+        android:layout_marginRight="20dp"
+        android:background="@drawable/signup_btn"
+        android:fontFamily="@font/lato"
+        android:text="New user? Sign up"
+        android:textColor="@android:color/secondary_text_light"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#FFFFFF" />
 
 </RelativeLayout>
