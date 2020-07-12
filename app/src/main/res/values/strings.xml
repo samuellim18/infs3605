@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Login</string>
+    <string name="app_name">Mudskipper</string>
     <string name="discover">Discover</string>
     <string name="projects">Projects</string>
     <string name="my_profile">My Profile</string>
@@ -19,6 +19,13 @@
     <string name="your_name">Full Name</string>
     <string name="re_type_password">Re-type Password</string>
 
+    <string name="your_projects">Your Projects</string>
+    <string name="create_new_project">Create a New Project</string>
+    <string name="add_project">Add Project</string>
+    <string name="project_name">Project name</string>
+    <string name="description">Description</string>
+    <string name="collaborator">Collaborators</string>
+    <string name="timeline">Timeline</string>
 
     <string name="category">Categories</string>
     <string name="trending">Trending</string>
