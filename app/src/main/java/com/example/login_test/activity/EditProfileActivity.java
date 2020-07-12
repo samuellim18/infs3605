@@ -22,12 +22,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.ArrayList;
+
 public class EditProfileActivity extends AppCompatActivity {
     String oldName, oldPhone, oldDescription,oldSkills;
     String newName, newPhone, newDescription,newSkills;
-    TextView emailTV;
+    TextView emailTV, epSkills;
     Button saveData;
-    EditText epName, epPhone, epDescription, epSkills;
+    EditText epName, epPhone, epDescription;
     String TAG = "edit prof";
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -35,6 +37,10 @@ public class EditProfileActivity extends AppCompatActivity {
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
     String email = currentUser.getEmail();
+    TextView mItemSelected;
+    String[] skillItem;
+    boolean[] selectedSkills;
+    ArrayList<Integer> mSkills = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
