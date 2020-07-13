@@ -5,56 +5,82 @@
     android:layout_height="match_parent"
     tools:context=".fragment.DiscoverFragment">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <SearchView
+                android:id="@+id/search"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:iconifiedByDefault="false">
+
+                <requestFocus />
+            </SearchView>
+
+            <ListView
+                android:id="@+id/listview"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/search"
+                android:visibility="gone"/>
+        </RelativeLayout>
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/category"
-                android:fontFamily="@font/lato"
-                android:gravity="center"
-                android:textSize="@dimen/_14sdp"
-                android:layout_margin="@dimen/_10sdp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black" />
-
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-                <LinearLayout
-                    android:id="@+id/category_lay"
-                    android:layout_width="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_5sdp" >
-                </LinearLayout>
-            </HorizontalScrollView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/trending"
-                android:gravity="center"
-                android:fontFamily="@font/lato"
-                android:textSize="@dimen/_14sdp"
-                android:layout_margin="@dimen/_10sdp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black" />
-
+            android:layout_height="match_parent">
             <LinearLayout
-                android:id="@+id/trending_layout"
                 android:layout_width="match_parent"
-                android:orientation="vertical"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp" >
+                android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category"
+                    android:fontFamily="@font/lato"
+                    android:gravity="center"
+                    android:textSize="@dimen/_14sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:id="@+id/category_lay"
+                        android:layout_width="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp">
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/trending"
+                    android:gravity="center"
+                    android:fontFamily="@font/lato"
+                    android:textSize="@dimen/_14sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black" />
+
+                <LinearLayout
+                    android:id="@+id/trending_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/_5sdp" >
+
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+        </ScrollView>
+    </LinearLayout>
 </FrameLayout>

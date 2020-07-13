@@ -26,7 +26,7 @@
         android:layout_marginLeft="25dp"
         android:layout_marginBottom="41dp"
         android:fontFamily="@font/lato"
-        android:text="Sign in."
+        android:text="Sign in"
         android:textColor="#000000"
         android:textSize="30sp" />
 
@@ -91,7 +91,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/orange_btn"
-        android:text="@string/login"
+        android:text="@string/common_signin_button_text"
         android:fontFamily="@font/lato"
         android:textColor="@android:color/white" />
 

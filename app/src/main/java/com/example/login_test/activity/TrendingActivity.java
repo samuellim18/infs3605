@@ -5,7 +5,6 @@ import android.util.DisplayMetrics;
 import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
-//youtube player shows error, but still plays
 import com.example.login_test.R;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;

@@ -1,5 +1,6 @@
 package com.example.login_test.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText email,pass;
     private String TAG;
     private String emailS , passS;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,12 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         initUI();
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Checking User...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setProgress(0);
 
         signup.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -67,28 +75,31 @@ public class LoginActivity extends AppCompatActivity {
     private void loginUser() {
         emailS = email.getText().toString();
         passS = pass.getText().toString();
+        progressDialog.show();
 
         if (TextUtils.isEmpty(emailS)) {
+            progressDialog.dismiss();
             Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
             return;
         }
         if (TextUtils.isEmpty(passS)) {
+            progressDialog.dismiss();
             Toast.makeText(getApplicationContext(), "Please enter password!", Toast.LENGTH_LONG).show();
             return;
         }
-
         mAuth.signInWithEmailAndPassword(emailS, passS)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        //progressDialog.show();
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
-
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();
                         }
                         else {
+                            progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
                         }
                     }
