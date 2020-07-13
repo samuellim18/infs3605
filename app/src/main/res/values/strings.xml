@@ -29,6 +29,7 @@
 
     <string name="category">Categories</string>
     <string name="trending">Trending</string>
+    <string name="search_movie">Movie: </string>
 
     <string name="profile_name">Profile Name</string>
     <string name="about_me">About Me:</string>
