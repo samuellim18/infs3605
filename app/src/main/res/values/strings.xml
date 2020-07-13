@@ -39,6 +39,12 @@
     <string name="message">Message</string>
     <string name="my_projects">Projects:</string>
     <string name="phone_no">Phone Number (Optional) </string>
+    <string-array name="skillSpinnerItems">
+        <item>Movie</item>
+        <item>Photography</item>
+        <item>UI/UX</item>
+        <item>Animation</item>
+    </string-array>
 
 
 </resources>
