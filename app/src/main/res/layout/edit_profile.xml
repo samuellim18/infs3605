@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+
 
         <TextView
             android:id="@+id/editP_logo"
@@ -25,6 +26,21 @@
             android:layout_marginTop="60dp"
             android:gravity="center_horizontal"
             android:layout_marginLeft="25dp" />
+
+        <ImageView
+            android:id="@+id/edit_profile_pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/edit_profile_photo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"
+            android:src="@android:color/darker_gray"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="@dimen/_1sdp"
+            tools:srcCompat="@drawable/dummy_trending" />
 
         <TextView
             android:id="@+id/editP_tv_email"
@@ -78,19 +94,21 @@
             android:background="@drawable/et_custom"
             android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/editP_skills"
+
+        <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
+            android:id="@+id/skillSpinnerMulti"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Skills"
+            android:layout_height="0dp"
+            android:hint="Skills List"
+            android:layout_weight="1"
+            android:maxLines="10"
+            android:singleLine="false"
+            android:entries="@array/skillSpinnerItems"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:padding="15dp"
-            android:inputType="phone"
-            android:background="@drawable/et_custom"
-            android:textSize="15sp" />
-
+            android:textSize="15sp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -98,7 +116,7 @@
             android:layout_weight="1">
 
             <Button
-                android:id="@+id/edit_profile"
+                android:id="@+id/save_edit_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"

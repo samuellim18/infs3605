@@ -3,6 +3,7 @@ package com.example.login_test.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
@@ -33,6 +34,8 @@ import com.example.login_test.activity.LoginActivity;
 import com.example.login_test.activity.MainActivity;
 import com.example.login_test.activity.SignupActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -64,13 +67,23 @@ public class ProfileFragment extends Fragment
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseUser currentUser = mAuth.getCurrentUser();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    FirebaseStorage storage = FirebaseStorage.getInstance();
+    FirebaseStorage storage = FirebaseStorage.getInstance("gs://test-a2467.appspot.com/");
     StorageReference storageRef = storage.getReference();
     String email = currentUser.getEmail();
+
     private static int RESULT_LOAD_IMAGE = 1;
+    private Bitmap bitmap;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+        Bundle bundle = getArguments();
+        if(bundle!=null){
+            byte[] byteArray = getArguments().getByteArray("image");
+            // bitmap = intent.getParcelableExtra("bitmap");
+            bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+            profile_photo.setImageBitmap(bitmap);
+        }
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         setHasOptionsMenu(true);
         myRecyclerView = view.findViewById(R.id.recyclerview_project);
@@ -177,6 +190,21 @@ public class ProfileFragment extends Fragment
     }
 
     public void getData(){
+        StorageReference islandRef = storageRef.child("images/s@yahoo.com");
+        final long FIVE_MEGABYTE = 5120 * 5120;
+        islandRef.getBytes(FIVE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                // Data for "images/island.jpg" is returns, use this as needed
+                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                profile_photo.setImageBitmap(bitmap);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+            }
+        });
         DocumentReference docRef = db.collection("users").document(email);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
