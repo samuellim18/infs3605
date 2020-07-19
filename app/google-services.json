@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "641842719615",
-    "firebase_url": "https://test-a2467.firebaseio.com",
-    "project_id": "test-a2467",
-    "storage_bucket": "test-a2467.appspot.com"
+    "project_number": "707036142868",
+    "firebase_url": "https://mudskipper-cb6a3.firebaseio.com",
+    "project_id": "mudskipper-cb6a3",
+    "storage_bucket": "mudskipper-cb6a3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:641842719615:android:6079c8a2c5d0c2f573484a",
+        "mobilesdk_app_id": "1:707036142868:android:3ee88616f75cf48f463601",
         "android_client_info": {
-          "package_name": "com.example.login_test"
+          "package_name": "com.example.mudskipper"
         }
       },
       "oauth_client": [
         {
-          "client_id": "641842719615-6t38i17cm5cogdo9l5v98895kerfqod1.apps.googleusercontent.com",
+          "client_id": "707036142868-k4dhtrjpl7rk1hjosaem0smjrup6vkor.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDjipDlVbzZ6guFUpHE68y-NZUbyUAS_rA"
+          "current_key": "AIzaSyAic12JuWpGAG-_DkXUSj-URU-poRAQKWE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "641842719615-6t38i17cm5cogdo9l5v98895kerfqod1.apps.googleusercontent.com",
+              "client_id": "707036142868-k4dhtrjpl7rk1hjosaem0smjrup6vkor.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

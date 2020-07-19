@@ -46,5 +46,25 @@
         <item>Animation</item>
     </string-array>
 
+    <string-array name="aus_states">
+        <item>NSW</item>
+        <item>TAS</item>
+        <item>VIC</item>
+        <item>SA</item>
+        <item>WA</item>
+        <item>QLD</item>
+    </string-array>
+
+    <string-array name="nsw_cities">
+        <item>Albury</item>
+        <item>Armidale</item>
+        <item>Bathurst</item>
+        <item>Blue Mountains</item>
+        <item>Broken Hill</item>
+        <item>Campbelltown</item>
+        <item>Sydney</item>
+        <item>Cessnock</item>
+    </string-array>
+
 
 </resources>
