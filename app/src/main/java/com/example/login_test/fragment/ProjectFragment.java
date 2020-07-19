@@ -36,7 +36,4 @@ public class ProjectFragment extends Fragment {
 
     }
 
-    private void initUI() {
-        create_project_bt = getActivity().findViewById(R.id.create_project_btn);
-    }
 }

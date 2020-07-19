@@ -50,8 +50,8 @@
                 android:padding="15dp"
                 android:textSize="15sp" />
 
-            <EditText
-                android:id="@+id/et_project_collaborator"
+            <Spinner
+                android:id="@+id/sp_collaborator"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="20dp"
@@ -62,10 +62,10 @@
                 android:hint="@string/collaborator"
                 android:inputType="text"
                 android:padding="15dp"
-                android:textSize="15sp" />
+                android:textSize="15sp"/>
 
             <EditText
-                android:id="@+id/et_project_timeline"
+                android:id="@+id/et_video_link"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="20dp"
@@ -73,18 +73,10 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/et_custom"
                 android:fontFamily="@font/lato"
-                android:hint="@string/timeline"
+                android:hint="@string/video_link"
                 android:inputType="text"
                 android:padding="15dp"
                 android:textSize="15sp" />
-
-            <SeekBar
-                android:id="@+id/sb_project_progress"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp" />
 
             <Button
                 android:id="@+id/add_project_btn"
