@@ -1,11 +1,11 @@
-package com.example.login_test.activity;
+package com.example.mudskipper.activity;
 
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
-import com.example.login_test.R;
+import com.example.mudskipper.R;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;

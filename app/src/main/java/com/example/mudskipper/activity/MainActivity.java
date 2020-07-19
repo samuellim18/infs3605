@@ -1,4 +1,4 @@
-package com.example.login_test.activity;
+package com.example.mudskipper.activity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -8,10 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.login_test.R;
-import com.example.login_test.fragment.DiscoverFragment;
-import com.example.login_test.fragment.ProfileFragment;
-import com.example.login_test.fragment.ProjectFragment;
+import com.example.mudskipper.R;
+import com.example.mudskipper.fragment.DiscoverFragment;
+import com.example.mudskipper.fragment.ProfileFragment;
+import com.example.mudskipper.fragment.ProjectFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import butterknife.BindView;

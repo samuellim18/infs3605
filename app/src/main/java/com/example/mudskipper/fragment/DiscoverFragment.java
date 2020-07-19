@@ -1,4 +1,4 @@
-package com.example.login_test.fragment;
+package com.example.mudskipper.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,9 +16,9 @@ import android.widget.BaseAdapter;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.login_test.R;
-import com.example.login_test.activity.TrendingActivity;
-import com.example.login_test.model.MovieModel;
+import com.example.mudskipper.R;
+import com.example.mudskipper.activity.TrendingActivity;
+import com.example.mudskipper.model.MovieModel;
 
 import java.util.ArrayList;
 import java.util.List;

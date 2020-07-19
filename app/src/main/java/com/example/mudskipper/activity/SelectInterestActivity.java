@@ -1,4 +1,4 @@
-package com.example.login_test.activity;
+package com.example.mudskipper.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -6,7 +6,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.example.login_test"
+        applicationId "com.example.mudskipper"
         multiDexEnabled  true
         minSdkVersion 21
         targetSdkVersion 29

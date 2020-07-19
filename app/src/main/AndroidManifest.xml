@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.login_test">
+    package="com.example.mudskipper">
     <uses-permission android:name="android.permission.INTERNET" /> <!-- this line adds the required permission request -->
 
     <application
@@ -10,19 +10,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name="com.example.mudskipper.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SignupActivity" />
-        <activity android:name=".activity.EditProfileActivity"/>
+        <activity android:name="com.example.mudskipper.activity.SignupActivity" />
+        <activity android:name="com.example.mudskipper.activity.EditProfileActivity"/>
         <activity
-            android:name="com.example.login_test.activity.TrendingActivity"
+            android:name="com.example.mudskipper.activity.TrendingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.MainActivity">
+        <activity android:name="com.example.mudskipper.activity.MainActivity">
         </activity>
 
         <meta-data

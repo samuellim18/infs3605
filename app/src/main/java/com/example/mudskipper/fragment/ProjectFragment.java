@@ -1,4 +1,4 @@
-package com.example.login_test.fragment;
+package com.example.mudskipper.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,10 +7,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.login_test.R;
+import com.example.mudskipper.R;
 
 public class ProjectFragment extends Fragment {
     private Button create_project_bt;

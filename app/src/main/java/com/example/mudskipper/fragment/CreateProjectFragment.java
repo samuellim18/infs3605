@@ -1,4 +1,4 @@
-package com.example.login_test.fragment;
+package com.example.mudskipper.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.login_test.R;
+import com.example.mudskipper.R;
 
 public class CreateProjectFragment extends Fragment {
     private EditText project_name, project_description, video_link;

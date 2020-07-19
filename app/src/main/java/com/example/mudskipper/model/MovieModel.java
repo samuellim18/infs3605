@@ -1,4 +1,4 @@
-package com.example.login_test.model;
+package com.example.mudskipper.model;
 
 public class MovieModel {
     private String MovieName;
