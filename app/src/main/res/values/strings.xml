@@ -66,5 +66,11 @@
         <item>Cessnock</item>
     </string-array>
 
+    <string-array name="vic_cities">
+        <item>Melbourne</item>
+    </string-array>
+
+
+
 
 </resources>

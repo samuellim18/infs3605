@@ -40,6 +40,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -47,9 +48,10 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class EditProfileActivity extends AppCompatActivity {
-    String oldName, oldPhone, oldDescription,oldSkills;
+    int cityPosition , statePosition;
+    String oldName, oldPhone, oldDescription,oldSkills,oldState,oldCity;
     private Uri filePath;
-    String newName, newPhone, newDescription;
+    String newName, newPhone, newDescription,stateS,cityS;
     CircleImageView edit_profile_pic;
     String newSkills = "";
     TextView emailTV;
@@ -66,6 +68,15 @@ public class EditProfileActivity extends AppCompatActivity {
     String[] skillItem;
     boolean[] selectedSkills;
     ArrayList<String> mSkills = new ArrayList<>();
+    private MultiSpinnerSearch spinnerState, spinnerCity;
+    private  List<String> nswCities;
+    private  List<String> ausStates;
+    private  List<String> vicCities;
+     List<KeyPairBoolData> listArrayStates = new ArrayList<>();
+     List<KeyPairBoolData> listArraySCities = new ArrayList<>();
+     List<String> skillList;
+     List<KeyPairBoolData> listArraySkills = new ArrayList<>();
+
     MultiSpinnerSearch skillMultiSpinner;
     private final int PICK_IMAGE_REQUEST = 71;
     Bitmap bitmapPic;
@@ -81,13 +92,20 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     public void initializeUI(){
+        nswCities = Arrays.asList(getResources().getStringArray(R.array.nsw_cities));
+        ausStates = Arrays.asList(getResources().getStringArray(R.array.aus_states));
+        vicCities = Arrays.asList(getResources().getStringArray(R.array.vic_cities));
+        skillList= Arrays.asList(getResources().getStringArray(R.array.skillSpinnerItems));
         epName = findViewById(R.id.editP_name);
         epDescription = findViewById(R.id.editP_description);
         epPhone = findViewById(R.id.editP_mobile);
         emailTV  =findViewById(R.id.editP_tv_email);
         skillMultiSpinner = findViewById(R.id.skillSpinnerMulti);
+        spinnerCity = findViewById(R.id.spinnerCities_ep);
+        spinnerState = findViewById(R.id.spinnerStates_ep);
         saveData = findViewById(R.id.save_edit_profile);
         edit_profile_pic = findViewById(R.id.edit_profile_photo);
+        edit_profile_pic.setImageResource(R.drawable.ic_baseline_person_24);
         edit_profile_pic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,30 +120,8 @@ public class EditProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
-        final List<String> list = Arrays.asList(getResources().getStringArray(R.array.skillSpinnerItems));
-        final List<KeyPairBoolData> listArray = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            KeyPairBoolData h = new KeyPairBoolData();
-            h.setId(i + 1);
-            h.setName(list.get(i));
-            h.setSelected(false);
-            listArray.add(h);
-        }
-        skillMultiSpinner.setItems(listArray, -1, new SpinnerListener() {
 
-            @Override
-            public void onItemsSelected(List<KeyPairBoolData> items) {
 
-                for (int i = 0; i < items.size(); i++) {
-                    if (items.get(i).isSelected()) {
-                        Log.i(TAG, i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
-                        mSkills.add(items.get(i).getName());
-                    }
-                }
-            }
-        });
-        skillMultiSpinner.setEmptyTitle("Skills");
-        skillMultiSpinner.setSearchHint("Find Data");
     }
 
     private void chooseImage() {
@@ -218,6 +214,8 @@ public class EditProfileActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
+                        oldState = document.getString("state");
+                        oldCity = document.getString("city");
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                         oldName=document.getString("name");
                         epName.setText(oldName);
@@ -225,9 +223,126 @@ public class EditProfileActivity extends AppCompatActivity {
                         oldPhone=document.getString("mobile_phone");
                         oldSkills = document.getString("skills");
                         oldDescription = document.getString("description");
+
+                        System.out.println("SKILLS" + oldSkills);
+                        System.out.println("OLD " + oldCity + " " + oldState);
+//                        spinnerCity.setHintText(cityS);
+//                        spinnerState.setHintText(stateS);
                         epPhone.setText(oldPhone);
+                        String[] oldSkillArray = oldSkills.split(",");
+                        for (int i = 0; i < skillList.size(); i++) {
+                            KeyPairBoolData h = new KeyPairBoolData();
+                            h.setId(i + 1);
+                            h.setName(skillList.get(i));
+                            for(String skill :oldSkillArray){
+                                if(skillList.contains(skill)){
+                                    h.setSelected(true);
+                                }
+                                else{h.setSelected(false);}
+                            }
+                            listArraySkills.add(h);
+                        }
+                       for (KeyPairBoolData s : listArraySkills){
+                           System.out.println(s);
+                       }
+
+                        skillMultiSpinner.setItems(listArraySkills,-1 , new SpinnerListener() {
+
+                            @Override
+                            public void onItemsSelected(List<KeyPairBoolData> items) {
+
+                                for (int i = 0; i < items.size(); i++) {
+                                    if (items.get(i).isSelected()) {
+                                        Log.i(TAG, i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
+                                        mSkills.add(items.get(i).getName());
+                                    }
+                                }
+                            }
+                        });
+
                         skillMultiSpinner.setHintText(oldSkills);
                         epDescription.setText(oldDescription);
+                        spinnerState.setLimit(1, new MultiSpinnerSearch.LimitExceedListener() {
+                            @Override
+                            public void onLimitListener(KeyPairBoolData data) {
+                                Toast.makeText(getApplicationContext(),
+                                        "Limit exceed ", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                        spinnerCity.setLimit(1, new MultiSpinnerSearch.LimitExceedListener() {
+                            @Override
+                            public void onLimitListener(KeyPairBoolData data) {
+                                Toast.makeText(getApplicationContext(),
+                                        "Limit exceed ", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                        for (int i = 0; i < ausStates.size(); i++) {
+                            KeyPairBoolData h = new KeyPairBoolData();
+                            h.setId(i + 1);
+                            h.setName(ausStates.get(i));
+                            h.setSelected(false);
+                            listArrayStates.add(h);
+                        }
+                        statePosition = ausStates.indexOf(oldState);
+                        cityPosition = nswCities.indexOf(oldCity);
+                        spinnerState.setItems(listArrayStates, statePosition,new SpinnerListener() {
+
+                            @Override
+                            public void onItemsSelected(List<KeyPairBoolData> items) {
+
+                                for (int i = 0; i < items.size(); i++) {
+                                    if (items.get(i).isSelected()) {
+                                        Log.i(TAG, i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
+                                        switch(items.get(i).getName()){
+                                            case "NSW":
+                                                stateS = items.get(i).getName();
+                                                for (int nsw = 0; nsw < nswCities.size(); nsw++) {
+                                                    KeyPairBoolData h = new KeyPairBoolData();
+                                                    h.setId(nsw + 1);
+                                                    h.setName(nswCities.get(nsw));
+                                                    h.setSelected(false);
+                                                    listArraySCities.add(h);
+                                                }
+
+
+                                                spinnerCity.setItems(listArraySCities, cityPosition, new SpinnerListener() {
+
+                                                    @Override
+                                                    public void onItemsSelected(List<KeyPairBoolData> items) {
+                                                        for (int i = 0; i < items.size(); i++) {
+                                                            if (items.get(i).isSelected()) {
+                                                                cityS = items.get(i).getName();
+                                                                Log.i(TAG, i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
+                                                            }
+                                                        }
+                                                    }
+                                                });
+                                                break;
+                                            case "VIC":
+                                                for (int vic = 0; vic < vicCities.size(); vic++) {
+                                                    KeyPairBoolData h = new KeyPairBoolData();
+                                                    h.setId(vic + 1);
+                                                    h.setName(vicCities.get(vic));
+                                                    h.setSelected(false);
+                                                    listArraySCities.add(h);
+                                                    spinnerCity.setItems(listArraySCities, cityPosition, new SpinnerListener() {
+                                                        @Override
+                                                        public void onItemsSelected(List<KeyPairBoolData> items) {
+
+                                                            for (int i = 0; i < items.size(); i++) {
+                                                                if (items.get(i).isSelected()) {
+                                                                    Log.i(TAG, i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
+                                                                }
+                                                            }
+                                                        }
+                                                    });
+                                                }
+                                        }
+                                    }
+                                }
+                            }
+                        });
+
                     } else {
                         Log.d(TAG, "No such document");
                     }
@@ -250,10 +365,12 @@ public class EditProfileActivity extends AppCompatActivity {
         newDescription  =epDescription.getText().toString();
         newPhone = epPhone.getText().toString();
         uploadImage();
-        for(int i=0;i<mSkills.size();i++){
-            newSkills += mSkills.get(i);
-            if(i<mSkills.size()-1){
-                newSkills+=",";
+        for(int i=0;i<listArraySkills.size();i++){
+            if(listArraySkills.get(i).isSelected()) {
+                newSkills += listArraySkills.get(i).getName();
+                if (i < listArraySkills.size() - 1) {
+                    newSkills += ",";
+                }
             }
         }
         System.out.println(email+ " "+newSkills + newName);
