@@ -61,6 +61,13 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        progressDialog.dismiss();
+    }
+
     private void initUI() {
         login = findViewById(R.id.btn_login);
         signup = findViewById(R.id.btn_signup);
