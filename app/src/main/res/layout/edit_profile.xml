@@ -23,7 +23,7 @@
             android:textSize="50sp"
             android:layout_marginStart="25dp"
             android:layout_marginBottom="5dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
             android:layout_marginLeft="25dp" />
 
@@ -39,8 +39,7 @@
             android:layout_height="@dimen/_80sdp"
             android:src="@android:color/darker_gray"
             app:civ_border_color="#FF000000"
-            app:civ_border_width="@dimen/_1sdp"
-            tools:srcCompat="@drawable/dummy_trending" />
+            app:civ_border_width="@dimen/_1sdp" />
 
         <TextView
             android:id="@+id/editP_tv_email"
@@ -71,14 +70,19 @@
 
         <EditText
             android:id="@+id/editP_description"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
             android:hint="Description"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:padding="15dp"
+            android:inputType="textPersonName|textMultiLine"
             android:background="@drawable/et_custom"
+            android:scrollHorizontally="false"
+            android:lines="3"
+            android:maxLines="10"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:scrollbars="vertical"
             android:textSize="15sp" />
 
         <EditText
@@ -109,7 +113,36 @@
             android:layout_marginBottom="10dp"
             android:padding="15dp"
             android:textSize="15sp"/>
+        <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
+            android:id="@+id/spinnerStates_ep"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="Skills List"
+            android:layout_weight="1"
+            android:maxLines="10"
+            android:singleLine="false"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            app:hintText="State"
+            android:padding="15dp"
+            android:textSize="15sp">
+        </com.androidbuts.multispinnerfilter.MultiSpinnerSearch>
 
+        <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
+            android:id="@+id/spinnerCities_ep"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="Skills List"
+            android:layout_weight="1"
+            android:maxLines="10"
+            android:singleLine="false"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:padding="15dp"
+            android:textSize="15sp">
+        </com.androidbuts.multispinnerfilter.MultiSpinnerSearch>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"

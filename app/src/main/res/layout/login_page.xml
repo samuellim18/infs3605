@@ -70,7 +70,7 @@
         android:hint="@string/e_mail"
         android:inputType="textEmailAddress"
         android:padding="15dp"
-        android:text="s1@yahoo.com"
+        android:text="z@gmail.com"
         android:textSize="15sp" />
 
     <RadioGroup

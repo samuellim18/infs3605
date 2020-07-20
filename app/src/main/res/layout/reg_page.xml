@@ -96,19 +96,23 @@
             android:background="@drawable/et_custom"
             android:textSize="15sp" />
 
-        <EditText
-            android:id="@+id/et_mobile"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
+        <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
+            android:id="@+id/spinnerStates"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:background="@drawable/et_custom"
-            android:fontFamily="@font/lato"
-            android:hint="@string/phone_no"
-            android:inputType="number"
-            android:padding="15dp"
-            android:textSize="15sp" />
+            android:entries="@array/aus_states">
+        </com.androidbuts.multispinnerfilter.MultiSpinnerSearch>
+
+        <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
+            android:id="@+id/spinnerCities"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/et_custom">
+
+        </com.androidbuts.multispinnerfilter.MultiSpinnerSearch>
 
         <RelativeLayout
             android:layout_width="match_parent"
