@@ -109,15 +109,7 @@ public class ProjectFragment extends Fragment {
                     //ArrayList<ProjectModel> project = new ArrayList<>();
                     for (DocumentSnapshot projects : document.getDocuments()) {
                         project.add(new ProjectModel(projects.getString("project_name"), projects.getString("project_description"), projects.getString("video_link")));
-
                     }
-
-                    for(int i = 0; i < project.size(); i++){
-                        System.out.println("HELLOOOO");
-                        System.out.println(project.get(i).getProject_name());
-                        System.out.println(project.get(i).getVideo_id());
-                    }
-
                     showProjects();
                 }
             }
