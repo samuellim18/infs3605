@@ -58,6 +58,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     //for using bottom navigation view
     implementation 'com.google.android.material:material:1.1.0'
+    implementation "androidx.cardview:cardview:1.0.0"
     //circle image view library
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
@@ -95,6 +96,9 @@ dependencies {
 
     //ExpandableRecyclerView
     implementation 'com.thoughtbot:expandablecheckrecyclerview:1.4'
+
+    //picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     //Chat
     implementation 'com.github.GetStream:stream-chat-android:4.0.13'
