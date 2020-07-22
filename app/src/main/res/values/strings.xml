@@ -22,6 +22,7 @@
     <string name="your_projects">Your Projects</string>
     <string name="create_new_project">Create a New Project</string>
     <string name="add_project">Add Project</string>
+    <string name="cancel">Cancel</string>
     <string name="project_name">Project name</string>
     <string name="description">Description</string>
     <string name="collaborator">Collaborators</string>
@@ -69,8 +70,6 @@
     <string-array name="vic_cities">
         <item>Melbourne</item>
     </string-array>
-
-
 
 
 </resources>

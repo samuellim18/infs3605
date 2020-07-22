@@ -1,5 +1,7 @@
 package com.example.mudskipper.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mudskipper.R;
+import com.example.mudskipper.activity.ProjectDetailActivity;
 import com.example.mudskipper.model.ProjectModel;
 import com.squareup.picasso.Picasso;
 
@@ -46,6 +49,9 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
         @Override
         public void onClick(View v) {
             mListener.onClick(v, getAdapterPosition());
+            /*Context context = v.getContext();
+            Intent intent = new Intent(context, ProjectDetailActivity.class);
+            context.startActivity(intent);*/
         }
     }
 
