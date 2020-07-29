@@ -49,9 +49,6 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
         @Override
         public void onClick(View v) {
             mListener.onClick(v, getAdapterPosition());
-            /*Context context = v.getContext();
-            Intent intent = new Intent(context, ProjectDetailActivity.class);
-            context.startActivity(intent);*/
         }
     }
 

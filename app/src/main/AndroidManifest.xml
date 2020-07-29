@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".activity.ProjectDetailActivity"></activity>
         <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.SignupActivity" />
+        <activity android:name=".activity.ProjectDetailActivity"/>
         <activity android:name=".activity.EditProfileActivity" />
         <activity
             android:name=".activity.TrendingActivity"

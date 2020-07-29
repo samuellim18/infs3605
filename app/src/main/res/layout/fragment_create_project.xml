@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
@@ -52,8 +53,8 @@
                 android:textColor="#000000"
                 android:textSize="15sp" />
 
-            <Spinner
-                android:id="@+id/sp_collaborator"
+            <TextView
+                android:id="@+id/et_sample"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="20dp"
@@ -61,10 +62,26 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/et_custom"
                 android:fontFamily="@font/lato"
-                android:hint="@string/collaborator"
+                android:hint="Collaborator's Name"
                 android:inputType="text"
                 android:padding="15dp"
-                android:textSize="15sp"/>
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/et_sample2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/et_custom"
+                android:fontFamily="@font/lato"
+                android:hint="Collaborator's Role"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textColor="#000000"
+                android:textSize="15sp" />
 
             <EditText
                 android:id="@+id/et_video_link"
@@ -80,6 +97,22 @@
                 android:padding="15dp"
                 android:textColor="#000000"
                 android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/add_collaborator_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_50sdp"
+                android:layout_marginRight="@dimen/_50sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:background="@drawable/orange_btn"
+                android:fontFamily="@font/lato"
+                android:text="@string/add_collaborators"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/add_project_btn"

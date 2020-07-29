@@ -21,7 +21,10 @@
 
     <string name="your_projects">Your Projects</string>
     <string name="create_new_project">Create a New Project</string>
+    <string name="delete_project">Delete</string>
+    <string name="edit_project">Edit</string>
     <string name="add_project">Add Project</string>
+    <string name="add_collaborators">Add Collaborator</string>
     <string name="cancel">Cancel</string>
     <string name="project_name">Project name</string>
     <string name="description">Description</string>
@@ -71,5 +74,12 @@
         <item>Melbourne</item>
     </string-array>
 
+    <string-array name = "roles">
+        <item>Film Director</item>
+        <item>Content Producer</item>
+        <item>Videographer</item>
+        <item>Script Writer</item>
+        <item>Editor</item>
+    </string-array>
 
 </resources>

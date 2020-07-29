@@ -123,7 +123,7 @@ public class ProjectFragment extends Fragment {
                 if (task.isSuccessful()) {
                     QuerySnapshot document = task.getResult();
                     for (DocumentSnapshot projects : document.getDocuments()) {
-                        project.add(new ProjectModel(projects.getString("project_name"), projects.getString("project_description"), projects.getString("video_link")));
+                        project.add(new ProjectModel(projects.getString("project_name"), projects.getString("project_description"), projects.getString("video_link"), projects.getString("likes")));
                     }
                     if (project.size() == 1) {
                         num_of_project.setText(project.size() + " Project");
