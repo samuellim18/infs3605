@@ -234,17 +234,17 @@ public class EditProfileActivity extends AppCompatActivity {
                             KeyPairBoolData h = new KeyPairBoolData();
                             h.setId(i + 1);
                             h.setName(skillList.get(i));
-                            for(String skill :oldSkillArray){
-                                if(skillList.contains(skill)){
-                                    h.setSelected(true);
-                                }
-                                else{h.setSelected(false);}
-                            }
+                            h.setSelected(false);
                             listArraySkills.add(h);
                         }
-                       for (KeyPairBoolData s : listArraySkills){
-                           System.out.println(s);
-                       }
+
+                        for(String skill :oldSkillArray){
+                            for(int i = 0;  i<listArraySkills.size();i++){
+                                if (listArraySkills.get(i).getName().equals(skill)){
+                                    listArraySkills.get(i).setSelected(true);
+                                }
+                            }
+                        }
 
                         skillMultiSpinner.setItems(listArraySkills,-1 , new SpinnerListener() {
 
@@ -368,10 +368,12 @@ public class EditProfileActivity extends AppCompatActivity {
         for(int i=0;i<listArraySkills.size();i++){
             if(listArraySkills.get(i).isSelected()) {
                 newSkills += listArraySkills.get(i).getName();
-                if (i < listArraySkills.size() - 1) {
-                    newSkills += ",";
+                if (i < listArraySkills.size() - 2) {
+                newSkills += ",";
+            }else {
+                    System.out.println(newSkills);
                 }
-            }
+        }
         }
         System.out.println(email+ " "+newSkills + newName);
         db.collection("users").document(email)

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +43,8 @@ public class DiscoverFragment extends Fragment implements SearchView.OnQueryText
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_discover, container, false);
-
+        getActivity().getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         category_lay = view.findViewById(R.id.category_lay);
         trending_layout = view.findViewById(R.id.trending_layout);
 

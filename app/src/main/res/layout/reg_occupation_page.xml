@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent" android:layout_width="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_occ_and_int"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/lato"
+            android:text="Select Occupation and Skills"
+            android:textColor="#000000"
+            android:textSize="30sp"/>
+        <TextView
+            android:id="@+id/tv_actor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/lato"
+            android:text="Actor"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+
+        <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
+            android:id="@+id/actorSkillSpinnerMulti"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="Select Interest(s)"
+            android:layout_weight="1"
+            android:maxLines="10"
+            android:singleLine="false"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            style="@style/spinnerDropDownItemStyle"
+            android:entries="@array/acting_skills"
+            android:padding="15dp"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/tv_director_film"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/lato"
+
+            android:text="Director/Filmmaker"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+
+        <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
+            android:id="@+id/directorSpinnerMulti"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="Select Interest(s)"
+            android:layout_weight="1"
+            android:maxLines="10"
+            android:singleLine="false"
+            style="@style/spinnerItemStyle"
+            android:entries="@array/director_skills"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:padding="15dp"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/tv_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/lato"
+            android:text="Photographer"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+
+        <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
+            android:id="@+id/photographerSpinnerMulti"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="Select Interest(s)"
+            android:layout_weight="1"
+            android:maxLines="10"
+            android:singleLine="false"
+            android:entries="@array/photography_skills"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:padding="15dp"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/tv_artist_designer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/lato"
+            android:text="Artist/Designer"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+
+        <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
+            android:id="@+id/designerSpinnerMulti"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="Select Interest(s)"
+            android:layout_weight="1"
+            android:maxLines="10"
+            android:singleLine="false"
+            android:layout_marginLeft="20dp"
+            android:entries="@array/design_skills"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:padding="15dp"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/tv_freelancer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/lato"
+            android:text="Freelance"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+
+        <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
+            android:id="@+id/freelanceSpinnerMulti"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="Select Interest(s)"
+            android:entries="@array/freelance_skills"
+            android:layout_weight="1"
+            android:maxLines="10"
+            android:singleLine="false"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:padding="15dp"
+            android:textSize="15sp"/>
+
+
+        <Button
+            android:id="@+id/buttonOcc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/orange_btn"
+            android:fontFamily="@font/lato"
+            android:text="Next"
+            android:layout_below="@+id/occExp"
+            android:textColor="@android:color/white" />
+
+
+    </LinearLayout>
+</ScrollView>

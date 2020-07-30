@@ -32,6 +32,7 @@
     <string name="trending">Trending</string>
     <string name="search_movie">Movie: </string>
 
+    <string name="edit_profile">Edit Profile</string>
     <string name="profile_name">Profile Name</string>
     <string name="about_me">About Me:</string>
     <string name="contact_detail">Contact Details:</string>
@@ -40,11 +41,19 @@
     <string name="message">Message</string>
     <string name="my_projects">Projects:</string>
     <string name="phone_no">Phone Number (Optional) </string>
+    <string name="select_interest_and_commitment">Select interest and commitment</string>
     <string-array name="skillSpinnerItems">
         <item>Movie</item>
         <item>Photography</item>
         <item>UI/UX</item>
         <item>Animation</item>
+        <item>Editing</item>
+        <item>High Speed photography</item>
+        <item>Motion Blur Photography</item>
+        <item>Micro Photography</item>
+        <item>Panoramic Photography</item>
+        <item>Black and White Photography</item>
+
     </string-array>
 
     <string-array name="aus_states">
@@ -70,6 +79,56 @@
     <string-array name="vic_cities">
         <item>Melbourne</item>
     </string-array>
+    <string-array name="interests">
+        <item>Videography</item>
+        <item>Photography</item>
+        <item>Wildlife</item>
+    </string-array>
+    <string-array name="occupations">
+        <item>Director/Filmmaker</item>
+        <item>Actor/Acteress</item>
+        <item>Photographer</item>
+        <item>Digital Artist/Designer</item>
+        <item>Freelancer</item>
+    </string-array>
+    <string-array name="director_skills">
+        <item>Filming</item>
+        <item>Editing</item>
+        <item>Screenwriting</item>
+        <item>Communication</item>
+        <item>Leadership</item>
+        <item>Strategic thinking</item>
+    </string-array>
+    <string-array name="acting_skills">
+        <item>Dancing</item>
+        <item>Singing</item>
+        <item>Combat Training</item>
+        <item>Musical Instruments</item>
+        <item>Fluency in 2 or more Languages</item>
+        <item>Communication</item>
 
+
+    </string-array>
+    <string-array name="photography_skills">
+        <item>High Speed Protography</item>
+        <item>Motion Blur Photography</item>
+        <item>Micro Photography</item>
+        <item>Panoramic Photography</item>
+        <item>Black and White Photography</item>
+    </string-array>
+    <string-array name="design_skills">
+        <item>Adobe Photoshop</item>
+        <item>Canva</item>
+        <item>Microsoft Publisher</item>
+        <item>Microsoft Paint (3D)</item>
+        <item>CSS</item>
+        <item>XML/HTML</item>
+    </string-array>
+    <string-array name="freelance_skills">
+        <item>Photography</item>
+        <item>Filmmaking</item>
+        <item>Film-editing</item>
+        <item>Digital Design</item>
+    </string-array>
 
 </resources>
