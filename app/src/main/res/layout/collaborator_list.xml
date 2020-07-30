@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8sdp"
+        android:orientation="vertical" >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:cardCornerRadius="@dimen/_12sdp" >
+
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:background="#BDBDBD"
+                app:srcCompat="@drawable/ic_baseline_person_24" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/collaborator_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/collaborator_role"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_8sdp" />
+
+    </LinearLayout>
+</LinearLayout>
