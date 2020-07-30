@@ -31,41 +31,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b04d1a4-8ede-461d-9132-779fab93567f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/AddCollaboratorDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/adapter/CollaboratorAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/model/CollaboratorModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/add_collaborator_dialog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/collaborator_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/activity/ProjectDetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/activity/ProjectDetailActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/adapter/ProjectAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/adapter/ProjectAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/CreateProjectFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/CreateProjectFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/ProjectFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/ProjectFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/model/ProjectModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/model/ProjectModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/anim/enter_from_left.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/anim/enter_from_left.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/anim/enter_from_right.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/anim/enter_from_right.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/anim/exit_to_left.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/anim/exit_to_left.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/anim/exit_to_right.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/anim/exit_to_right.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_thumb_up_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_thumb_up_24.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_project_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_project_detail.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_create_project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_create_project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -413,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595400290724</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Project detail page &amp; add collaboration part">
+      <created>1596028163492</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1596028163492</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -447,7 +420,8 @@
     <MESSAGE value="Changed firebase to group account" />
     <MESSAGE value="Added spinner for reg and edit profile page" />
     <MESSAGE value="Project page commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project page commit" />
+    <MESSAGE value="Project detail page &amp; add collaboration part" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project detail page &amp; add collaboration part" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2568" y="311" key="#Custom_Plugin_Repositories" timestamp="1593788601127">
@@ -483,10 +457,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="624" y="178" key="AndroidProcessChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1595160421347" />
-    <state x="3200" y="0" width="899" height="789" key="CommitChangelistDialog2" timestamp="1595400287267">
+    <state x="3734" y="52" width="899" height="789" key="CommitChangelistDialog2" timestamp="1596028156047">
       <screen x="3200" y="0" width="1920" height="999" />
     </state>
-    <state x="3200" y="0" key="CommitChangelistDialog2/0.0.1280.680/3200.0.1920.999@3200.0.1920.999" timestamp="1595400287267" />
+    <state x="3734" y="52" key="CommitChangelistDialog2/0.0.1280.680/3200.0.1920.999@3200.0.1920.999" timestamp="1596028156047" />
     <state x="0" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1595211032782" />
     <state x="1920" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1594301873546" />
     <state x="0" y="29" key="CommitChangelistDialog2/0.23.1440.809@0.23.1440.809" timestamp="1594178053821" />
@@ -547,10 +521,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="547" y="128" key="VCS.ChangeListViewerDialog/0.0.1536.824@0.0.1536.824" timestamp="1595211051486" />
-    <state x="3649" y="177" key="Vcs.Push.Dialog.v2" timestamp="1595400465904">
+    <state x="3649" y="177" key="Vcs.Push.Dialog.v2" timestamp="1596028203327">
       <screen x="3200" y="0" width="1920" height="999" />
     </state>
-    <state x="3649" y="177" key="Vcs.Push.Dialog.v2/0.0.1280.680/3200.0.1920.999@3200.0.1920.999" timestamp="1595400465904" />
+    <state x="3649" y="177" key="Vcs.Push.Dialog.v2/0.0.1280.680/3200.0.1920.999@3200.0.1920.999" timestamp="1596028203327" />
     <state x="359" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1595164457642" />
     <state x="2279" y="146" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1594301891230" />
     <state x="337" y="167" key="Vcs.Push.Dialog.v2/0.23.1440.811@0.23.1440.811" timestamp="1594176874767" />
@@ -564,10 +538,10 @@
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state x="1961" y="115" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1594301836340" />
-    <state x="3741" y="262" key="com.intellij.ide.util.TipDialog" timestamp="1596028019561">
+    <state x="3741" y="262" key="com.intellij.ide.util.TipDialog" timestamp="1596113923815">
       <screen x="3200" y="0" width="1920" height="999" />
     </state>
-    <state x="3741" y="262" key="com.intellij.ide.util.TipDialog/0.0.1280.680/3200.0.1920.999@3200.0.1920.999" timestamp="1596028019561" />
+    <state x="3741" y="262" key="com.intellij.ide.util.TipDialog/0.0.1280.680/3200.0.1920.999@3200.0.1920.999" timestamp="1596113923815" />
     <state x="361" y="178" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1595811037901" />
     <state x="433" y="216" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1595129314263" />
     <state x="567" y="102" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1594810486425">
@@ -579,9 +553,10 @@
     </state>
     <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1595211038204" />
     <state x="2498" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1594301444437" />
-    <state x="688" y="308" key="git4idea.merge.GitPullDialog" timestamp="1593529066346">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="3594" y="433" key="git4idea.merge.GitPullDialog" timestamp="1596115185899">
+      <screen x="3200" y="0" width="1920" height="999" />
     </state>
+    <state x="3594" y="433" key="git4idea.merge.GitPullDialog/0.0.1280.680/3200.0.1920.999@3200.0.1920.999" timestamp="1596115185899" />
     <state x="688" y="308" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593529066346" />
     <state x="2482" y="160" key="refactoring.ChangeSignatureDialog" timestamp="1593790624204">
       <screen x="1920" y="0" width="1536" height="824" />
