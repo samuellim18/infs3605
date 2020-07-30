@@ -108,7 +108,7 @@
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/orange_btn"
                 android:fontFamily="@font/lato"
-                android:text="@string/add_collaborators"
+                android:text="Add Collaborator(s)"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/_10sdp"

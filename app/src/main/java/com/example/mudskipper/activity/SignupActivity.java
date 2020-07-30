@@ -86,7 +86,7 @@ public class SignupActivity extends AppCompatActivity {
         regButton = findViewById(R.id.btn_register);
         spinnerState =findViewById(R.id.spinnerStates);
         spinnerCity = findViewById(R.id.spinnerCities);
-
+        spinnerState.setHintText("State");
         spinnerState.setLimit(1, new MultiSpinnerSearch.LimitExceedListener() {
             @Override
             public void onLimitListener(KeyPairBoolData data) {
@@ -174,9 +174,6 @@ public class SignupActivity extends AppCompatActivity {
         passS = pass.getText().toString();
 
 
-        // find the radiobutton by returned id
-
-
         if (TextUtils.isEmpty(emailS)) {
             Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
             return;
@@ -208,7 +205,7 @@ public class SignupActivity extends AppCompatActivity {
                             }
                             newUser.put("description", null);
                             newUser.put("skills", null);
-                            startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                            startActivity(new Intent(SignupActivity.this, SelectOccupationActivity.class));
                             db.collection("users")
                                     .document(emailS)
                                     .set(newUser)
