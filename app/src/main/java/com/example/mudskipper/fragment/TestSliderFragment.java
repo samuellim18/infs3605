@@ -1,5 +1,6 @@
 package com.example.mudskipper.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mudskipper.R;
+import com.example.mudskipper.activity.EditProfileActivity;
 import com.example.mudskipper.adapter.FragmentViewPagerActivity;
 import com.example.mudskipper.databinding.ActivityFragmentViewPagerBinding;
 import com.example.mudskipper.databinding.FragmentFragmentViewPagerBinding;
@@ -38,7 +40,12 @@ public class TestSliderFragment extends Fragment {
     private void init() {
         // removing toolbar elevation
         //getSupportActionBar().setElevation(0);
-
+        binding.editProfileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), EditProfileActivity.class));
+            }
+        });
         binding.viewPager.setAdapter(new ViewPagerFragmentAdapter(getActivity()));
 
         // attaching tab mediator

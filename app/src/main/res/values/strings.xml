@@ -130,5 +130,9 @@
         <item>Film-editing</item>
         <item>Digital Design</item>
     </string-array>
-
+    <string-array name="roles">
+        <item>Actor</item>
+        <item>Director</item>
+        <item>Freelance</item>
+    </string-array>
 </resources>

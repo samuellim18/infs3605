@@ -1,6 +1,7 @@
 package com.example.mudskipper.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,14 +16,26 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.mudskipper.R;
+import com.example.mudskipper.activity.ProjectDetailActivity;
+import com.example.mudskipper.adapter.ProjectAdapter;
+import com.example.mudskipper.model.ProjectModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
 public class ProfileProjectDetailsFragment extends Fragment {
+    public static final String EXTRA_MESSAGE = "";
+    private ArrayList<ProjectModel> project = new ArrayList<>();
     private Context mContext_f;
     ArrayList<Integer> img_arraylist =new ArrayList<>();
     RecyclerView myRecyclerView;
     HomeRecyclerViewAdapter adapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -103,4 +116,6 @@ public class ProfileProjectDetailsFragment extends Fragment {
             }
         }
     }
+
+
 }

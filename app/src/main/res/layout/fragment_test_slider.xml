@@ -65,7 +65,7 @@
                         android:layout_weight="1" >
 
                         <Button
-                            android:id="@+id/follow_btn"
+                            android:id="@+id/edit_profile_btn"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_28sdp"
                             android:layout_marginLeft="@dimen/_5sdp"
