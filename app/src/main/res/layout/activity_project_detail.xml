@@ -129,17 +129,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:background="@android:color/white"/>
 
-            <TextView
-                android:id="@+id/tv_project_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
-                android:fontFamily="@font/lato"
-                android:text="Status"
-                android:textColor="@android:color/black"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-
         </LinearLayout>
     </ScrollView>
 
@@ -149,22 +138,6 @@
         android:orientation="horizontal"
         android:layout_weight="1"
         android:gravity="center">
-
-        <Button
-            android:id="@+id/edit_project_btn"
-            android:layout_width="170dp"
-            android:layout_height="@dimen/_28sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:layout_marginBottom="@dimen/_15sdp"
-            android:background="@drawable/gray_btn"
-            android:fontFamily="@font/lato"
-            android:text="Edit Project"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/_10sdp"
-            android:textStyle="bold"
-            android:gravity="center"/>
 
         <Button
             android:id="@+id/delete_project_btn"

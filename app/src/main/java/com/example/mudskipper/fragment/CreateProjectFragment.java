@@ -2,12 +2,15 @@ package com.example.mudskipper.fragment;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,20 +46,17 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
     private Button add_project_btn, cancel_btn, add_collaborator_btn;
     private ArrayList<String> collaborator_name = new ArrayList<>();
     private ArrayList<String> collaborator_role = new ArrayList<>();
-    private ArrayList<String> collaborator = new ArrayList<>();
+    private ListView collaborator_list;
+    ArrayAdapter collaborator_adapter;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseUser currentUser = mAuth.getCurrentUser();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
-    private TextView sample1, sample2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create_project, container, false);
-
-        sample1 = view.findViewById(R.id.et_sample);
-        sample2 = view.findViewById(R.id.et_sample2);
 
         project_name = view.findViewById(R.id.et_project_name);
         project_description = view.findViewById(R.id.et_project_description);
@@ -86,7 +86,21 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
             }
         });
 
-        //getCollaborators();
+        collaborator_list = view.findViewById(R.id.lv_collaborator);
+        /*collaborator_adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, collaborator_name);
+        collaborator_list.setAdapter(collaborator_adapter);*/
+        collaborator_adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_2, android.R.id.text1, collaborator_name){
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+
+                text1.setText(collaborator_name.get(position));
+                text2.setText(collaborator_role.get(position));
+                return view;
+            }
+        };
+        collaborator_list.setAdapter(collaborator_adapter);
 
         return view;
     }
@@ -97,6 +111,16 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
         video_linkS = video_link.getText().toString();
         emailS = currentUser.getEmail();
 
+        if (TextUtils.isEmpty(project_nameS) || TextUtils.isEmpty(project_descriptionS) || TextUtils.isEmpty(video_linkS)) {
+            Toast.makeText(getContext(), "Missing field(s)", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (collaborator_name.size() == 0) {
+            Toast.makeText(getContext(), "Please add at least one collaborator", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         Map<String, Object> newProject = new HashMap<>();
         newProject.put("project_name", project_nameS);
         newProject.put("project_description", project_descriptionS);
@@ -104,16 +128,7 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
         newProject.put("email", emailS);
         newProject.put("likes", "0");
 
-        ArrayList<String> collaborators = new ArrayList<>();
-        collaborators.add("pat");
-        collaborators.add("sam");
-        collaborators.add("john");
-        newProject.put("collaborators", collaborators);
-
-        ArrayList<String> collaborator_role = new ArrayList<>();
-        collaborator_role.add("role1");
-        collaborator_role.add("role2");
-        collaborator_role.add("role3");
+        newProject.put("collaborators", collaborator_name);
         newProject.put("collaborator_role", collaborator_role);
 
         db.collection("projects")
@@ -122,7 +137,6 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        //getCollaborator();
                         Toast.makeText(getContext(), "Project added", Toast.LENGTH_LONG).show();
                         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right);
@@ -142,35 +156,13 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
         AddCollaboratorDialog addCollaboratorDialog = new AddCollaboratorDialog();
         addCollaboratorDialog.setTargetFragment(CreateProjectFragment.this, 0);
         addCollaboratorDialog.show(getActivity().getSupportFragmentManager(), "Add Collab");
-
     }
 
     @Override
     public void applyTexts(String name, String role) {
-        sample1.setText(name);
-        sample2.setText(role);
         collaborator_name.add(name);
         collaborator_role.add(role);
-    }
-
-    private void getCollaborators(){
-        emailS = currentUser.getEmail();
-        CollectionReference collaborators = db.collection("users");
-        //Query query = collaborators.whereEqualTo("email", emailS);
-        collaborators.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    QuerySnapshot document = task.getResult();
-                    for (DocumentSnapshot collaborators : document.getDocuments()) {
-                        collaborator.add(collaborators.getString("name"));
-                    }
-                    for(int i = 0; i < collaborator.size(); i++){
-                        System.out.println(collaborator.get(i));
-                    }
-                }
-            }
-        });
+        collaborator_adapter.notifyDataSetChanged();
     }
 
 }

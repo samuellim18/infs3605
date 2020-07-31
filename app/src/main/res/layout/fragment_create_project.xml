@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_weight="10">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,6 +26,17 @@
                 android:textStyle="bold"
                 android:textColor="@android:color/black" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="Project Name"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/et_project_name"
                 android:layout_width="match_parent"
@@ -32,11 +46,21 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/et_custom"
                 android:fontFamily="@font/lato"
-                android:hint="@string/project_name"
+                android:hint="e.g. Wild Karnataka"
                 android:inputType="text"
                 android:padding="15dp"
                 android:textColor="#000000"
                 android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="Project Description"
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/et_project_description"
@@ -47,41 +71,21 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/et_custom"
                 android:fontFamily="@font/lato"
-                android:hint="@string/description"
+                android:hint="e.g. An unprecedented film on Karnataka’s rich Biodiversity..."
                 android:inputType="textMultiLine"
                 android:padding="15dp"
                 android:textColor="#000000"
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/et_sample"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/et_custom"
-                android:fontFamily="@font/lato"
-                android:hint="Collaborator's Name"
-                android:inputType="text"
-                android:padding="15dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="Video Link"
                 android:textColor="#000000"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/et_sample2"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/et_custom"
-                android:fontFamily="@font/lato"
-                android:hint="Collaborator's Role"
-                android:inputType="text"
-                android:padding="15dp"
-                android:textColor="#000000"
-                android:textSize="15sp" />
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/et_video_link"
@@ -92,69 +96,87 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/et_custom"
                 android:fontFamily="@font/lato"
-                android:hint="@string/video_link"
+                android:hint="e.g. https://www.youtube.com/watch"
                 android:inputType="text"
                 android:padding="15dp"
                 android:textColor="#000000"
                 android:textSize="15sp" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="Collaborator(s)"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
             <Button
                 android:id="@+id/add_collaborator_btn"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_28sdp"
-                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_50sdp"
                 android:layout_marginRight="@dimen/_50sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/orange_btn"
                 android:fontFamily="@font/lato"
-                android:text="Add Collaborator(s)"
+                android:text="Add Collaborator"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/_10sdp"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/add_project_btn"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_28sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginLeft="@dimen/_50sdp"
-                android:layout_marginRight="@dimen/_50sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
-                android:background="@drawable/orange_btn"
-                android:fontFamily="@font/lato"
-                android:text="@string/add_project"
-                android:textAllCaps="true"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/_10sdp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/cancel_btn"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_28sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginLeft="@dimen/_50sdp"
-                android:layout_marginRight="@dimen/_50sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
-                android:background="@drawable/signup_btn"
-                android:fontFamily="@font/lato"
-                android:text="@string/cancel"
-                android:textAllCaps="true"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/_10sdp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:id="@+id/project_layout"
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp" >
-
-            </LinearLayout>
+                <ListView
+                    android:id="@+id/lv_collaborator"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    android:nestedScrollingEnabled="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    />
 
         </LinearLayout>
     </ScrollView>
-</FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/cancel_btn"
+            android:layout_width="170dp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:background="@drawable/gray_btn"
+            android:fontFamily="@font/lato"
+            android:text="Cancel"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/add_project_btn"
+            android:layout_width="170dp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:background="@drawable/gray_btn"
+            android:fontFamily="@font/lato"
+            android:text="Add Project"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+    </LinearLayout>
+</LinearLayout>

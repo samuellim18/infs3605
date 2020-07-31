@@ -21,6 +21,7 @@
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
                 android:background="#BDBDBD"
+                android:scaleType="centerInside"
                 app:srcCompat="@drawable/ic_baseline_person_24" />
 
         </androidx.cardview.widget.CardView>

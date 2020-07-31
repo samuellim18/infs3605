@@ -133,6 +133,11 @@
     <string-array name="roles">
         <item>Actor</item>
         <item>Director</item>
+        <item>Script Writer</item>
+        <item>Editor</item>
+        <item>Photographer</item>
+        <item>Artist</item>
+        <item>Cameraman</item>
         <item>Freelance</item>
     </string-array>
 </resources>

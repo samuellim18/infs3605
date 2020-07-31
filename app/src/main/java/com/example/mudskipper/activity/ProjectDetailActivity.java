@@ -122,10 +122,7 @@ public class ProjectDetailActivity extends YouTubeBaseActivity {
                         Typeface myFont = ResourcesCompat.getFont(getApplicationContext(),R.font.lato);
                         project_name.setText(project.getProject_name());
                         tv_toolbar.setText(project.getProject_name());
-                        //project_name.setTypeface(myFont);
                         project_description.setText(project.getProject_description());
-                        //project_description.setTypeface(myFont);
-                        //project_collaborator.setTypeface(myFont);
                         video_id = project.getVideo_id();
                         tv_likes.setText(project.getLikes());
 
@@ -169,14 +166,6 @@ public class ProjectDetailActivity extends YouTubeBaseActivity {
     }
 
     public void getCollaborators(){
-
-        /*collaborator.add(new CollaboratorModel("Pat", "Photographer"));
-        collaborator.add(new CollaboratorModel("Sam", "Script Writer"));
-        collaborator.add(new CollaboratorModel("Akhil", "Script Writer"));
-        collaborator.add(new CollaboratorModel("Alicia", "Script Writer"));
-        collaborator.add(new CollaboratorModel("Nhi", "Script Writer"));
-        collaborator.add(new CollaboratorModel("Shera", "Script Writer"));*/
-
         showCollaborators();
     }
 
