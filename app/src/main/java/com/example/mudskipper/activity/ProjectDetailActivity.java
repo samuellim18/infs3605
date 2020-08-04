@@ -143,7 +143,6 @@ public class ProjectDetailActivity extends YouTubeBaseActivity {
                     //Log.d(TAG, "get failed with ", task.getException());
                     System.out.println("No such doc");
                 }
-
             }
         });
     }
@@ -196,7 +195,5 @@ public class ProjectDetailActivity extends YouTubeBaseActivity {
                 builder.setNegativeButton(android.R.string.no, null);
                 builder.setCancelable(false);
                 builder.show();
-
     }
-
 }

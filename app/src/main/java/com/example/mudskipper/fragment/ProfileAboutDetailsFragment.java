@@ -36,7 +36,7 @@ public class ProfileAboutDetailsFragment extends Fragment {
     private Context mContext_f;
     RecyclerView myRecyclerView;
     Button follow;
-    ProfileFragment.HomeRecyclerViewAdapter adapter;
+    //ProfileFragment.HomeRecyclerViewAdapter adapter;
     CircleImageView profile_photo;
     ImageView profile_menu;
     String TAG = "Profile ";
@@ -48,7 +48,6 @@ public class ProfileAboutDetailsFragment extends Fragment {
     FirebaseStorage storage = FirebaseStorage.getInstance("gs://test-a2467.appspot.com/");
     StorageReference storageRef = storage.getReference();
     String email = currentUser.getEmail();
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -88,7 +87,6 @@ public class ProfileAboutDetailsFragment extends Fragment {
                         profileSkills.setText("Skills: " + skills);
                         profileDescription.setText("Description: " + description);
 
-
                         System.out.println(document);
                     } else {
                         Log.d(TAG, "No such document");
@@ -96,7 +94,6 @@ public class ProfileAboutDetailsFragment extends Fragment {
                 } else {
                     Log.d(TAG, "get failed with ", task.getException());
                 }
-
             }
         });
     }

@@ -62,7 +62,6 @@ public class SkillsAdapter extends RecyclerView.Adapter<SkillsAdapter.ViewHolder
     public void onBindViewHolder(@NonNull SkillsAdapter.ViewHolder holder, int position) {
         SkillModel skill = projectList.get(position);
         holder.mSkillName.setText((CharSequence) skill.getSkillName());
-
     }
 
     @Override

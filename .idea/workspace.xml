@@ -30,7 +30,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b04d1a4-8ede-461d-9132-779fab93567f" name="Default Changelist" comment="">
+    <list default="true" id="0b04d1a4-8ede-461d-9132-779fab93567f" name="Default Changelist" comment="dashboard - shows all projects under trending; profile - shows all projects from firestore; tested proj added to show it comes up in both dashboard/trending and profile">
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -40,19 +40,52 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_Liocoder24x7_Advanced_Spinner_v1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_Liocoder24x7_Advanced_Spinner_v1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_PierfrancescoSoffritti_AndroidYouTubePlayer_7_0_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_PierfrancescoSoffritti_AndroidYouTubePlayer_7_0_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_pratikbutani_MultiSelectSpinner__SNAPSHOT_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_pratikbutani_MultiSelectSpinner__SNAPSHOT_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_exoplayer_exoplayer_core_2_9_6_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_exoplayer_exoplayer_core_2_9_6_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_exoplayer_exoplayer_dash_2_9_6_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_exoplayer_exoplayer_dash_2_9_6_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_exoplayer_exoplayer_hls_2_9_6_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_exoplayer_exoplayer_hls_2_9_6_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_exoplayer_exoplayer_smoothstreaming_2_9_6_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_exoplayer_exoplayer_smoothstreaming_2_9_6_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_exoplayer_exoplayer_ui_2_9_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_exoplayer_exoplayer_ui_2_9_3_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_picasso_picasso_2_71828_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_picasso_picasso_2_71828_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_thoughtbot_expandablerecyclerview_1_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_thoughtbot_expandablerecyclerview_1_3_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/AddCollaboratorDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/AddCollaboratorDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/activity/EditProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/activity/EditProfileActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/activity/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/activity/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/activity/ProjectDetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/activity/ProjectDetailActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/activity/SelectInterestActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/activity/SelectInterestActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/activity/SelectOccupationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/activity/SelectOccupationActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/activity/SignupActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/activity/SignupActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/activity/TrendingActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/activity/TrendingActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/adapter/CollaboratorAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/adapter/CollaboratorAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/adapter/FragmentViewPagerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/adapter/FragmentViewPagerActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/adapter/ProjectAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/adapter/ProjectAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/adapter/SkillsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/adapter/SkillsAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/adapter/ViewPagerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/adapter/ViewPagerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/CardFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/CardFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/CreateProjectFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/CreateProjectFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_projects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_projects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/DiscoverFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/DiscoverFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/ProfileAboutDetailsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/ProfileAboutDetailsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/ProfileFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/ProfileFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/ProfileProjectDetailsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/ProfileProjectDetailsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/ProjectFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/ProjectFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/TabAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/TabAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/TestSliderFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/TestSliderFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3a_API_29" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3a_XL_API_29" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -114,7 +147,7 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-07-31T09:29:36.623Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/MultichoiceTutorial-master/MultichoiceTutorial-master" />
-    <property name="memory.settings.postsync.last.time.stamp" value="1594137303011" />
+    <property name="memory.settings.postsync.last.time.stamp" value="1596576394815" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -451,7 +484,8 @@
     <MESSAGE value="Project detail page &amp; add collaboration part" />
     <MESSAGE value="Merge" />
     <MESSAGE value="Add project collaborator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add project collaborator" />
+    <MESSAGE value="dashboard - shows all projects under trending; profile - shows all projects from firestore; tested proj added to show it comes up in both dashboard/trending and profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="dashboard - shows all projects under trending; profile - shows all projects from firestore; tested proj added to show it comes up in both dashboard/trending and profile" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2568" y="311" key="#Custom_Plugin_Repositories" timestamp="1593788601127">
@@ -487,8 +521,8 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="624" y="178" key="AndroidProcessChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1595160421347" />
-    <state x="3734" y="52" width="899" height="789" key="CommitChangelistDialog2" timestamp="1596194235880">
-      <screen x="3200" y="0" width="1920" height="999" />
+    <state x="0" y="55" width="899" height="789" key="CommitChangelistDialog2" timestamp="1596580531911">
+      <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state x="3734" y="52" key="CommitChangelistDialog2/0.0.1280.680/3200.0.1920.999@3200.0.1920.999" timestamp="1596194235880" />
     <state x="0" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1595211032782" />
@@ -497,6 +531,7 @@
     <state x="0" y="29" width="899" height="789" key="CommitChangelistDialog2/0.23.1440.811@0.23.1440.811" timestamp="1594177073240" />
     <state x="306" y="30" key="CommitChangelistDialog2/0.23.1440.814@0.23.1440.814" timestamp="1594158407259" />
     <state x="306" y="30" key="CommitChangelistDialog2/0.23.1440.816@0.23.1440.816" timestamp="1594157867036" />
+    <state x="0" y="55" key="CommitChangelistDialog2/0.23.1440.827@0.23.1440.827" timestamp="1596580531911" />
     <state x="3886" y="202" key="FileChooserDialogImpl" timestamp="1596156590936">
       <screen x="3200" y="0" width="1920" height="999" />
     </state>
@@ -570,13 +605,14 @@
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state x="1961" y="115" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1594301836340" />
-    <state x="3741" y="262" key="com.intellij.ide.util.TipDialog" timestamp="1596506917010">
-      <screen x="3200" y="0" width="1920" height="999" />
+    <state x="406" y="239" key="com.intellij.ide.util.TipDialog" timestamp="1596576346435">
+      <screen x="0" y="23" width="1440" height="823" />
     </state>
     <state x="361" y="178" key="com.intellij.ide.util.TipDialog/0.0.1280.680/3200.0.1920.999@0.0.1280.680" timestamp="1596154990697" />
     <state x="3741" y="262" key="com.intellij.ide.util.TipDialog/0.0.1280.680/3200.0.1920.999@3200.0.1920.999" timestamp="1596506917010" />
     <state x="361" y="178" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1595811037901" />
     <state x="433" y="216" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1595129314263" />
+    <state x="406" y="239" key="com.intellij.ide.util.TipDialog/0.23.1440.823@0.23.1440.823" timestamp="1596576346435" />
     <state x="567" y="102" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1594810486425">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -599,5 +635,31 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1595137517823" />
+    <state x="570" y="78" width="670" height="677" key="search.everywhere.popup" timestamp="1596579292183">
+      <screen x="0" y="23" width="1440" height="827" />
+    </state>
+    <state x="570" y="78" width="670" height="676" key="search.everywhere.popup/0.23.1440.826@0.23.1440.826" timestamp="1596578671934" />
+    <state x="570" y="78" width="670" height="677" key="search.everywhere.popup/0.23.1440.827@0.23.1440.827" timestamp="1596579292183" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/ProfileProjectDetailsFragment.java</url>
+          <line>147</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/ProfileProjectDetailsFragment.java</url>
+          <line>124</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/ProfileProjectDetailsFragment.java</url>
+          <line>130</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

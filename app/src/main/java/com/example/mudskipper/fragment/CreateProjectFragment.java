@@ -98,8 +98,8 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
                 return view;
             }
         };
-        collaborator_list.setAdapter(collaborator_adapter);
 
+        collaborator_list.setAdapter(collaborator_adapter);
         return view;
     }
 
@@ -162,5 +162,4 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
         collaborator_role.add(role);
         collaborator_adapter.notifyDataSetChanged();
     }
-
 }

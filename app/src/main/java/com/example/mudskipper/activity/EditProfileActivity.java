@@ -18,7 +18,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
-
 import com.androidbuts.multispinnerfilter.KeyPairBoolData;
 import com.androidbuts.multispinnerfilter.MultiSpinnerSearch;
 import com.androidbuts.multispinnerfilter.SpinnerListener;
@@ -81,8 +80,6 @@ public class EditProfileActivity extends AppCompatActivity {
     private final int PICK_IMAGE_REQUEST = 71;
     Bitmap bitmapPic;
 
-
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,8 +117,6 @@ public class EditProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
 
     private void chooseImage() {
@@ -201,9 +196,6 @@ public class EditProfileActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-
-
-
     }
 
     public void getData(){
@@ -382,10 +374,5 @@ public class EditProfileActivity extends AppCompatActivity {
                         "mobile_phone", newPhone,
                         "skills",newSkills
                 );
-
-
-
-
     }
-
 }

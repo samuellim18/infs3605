@@ -87,8 +87,6 @@ public class SelectInterestActivity extends AppCompatActivity {
                 System.out.println(newInterest);
                 startActivity(new Intent(SelectInterestActivity.this, MainActivity.class));
                 }
-
-
         });
     }
 
@@ -168,6 +166,5 @@ public class SelectInterestActivity extends AppCompatActivity {
                         Log.w(TAG, "Error adding document", e);
                     }
                 });
-
     }
 }

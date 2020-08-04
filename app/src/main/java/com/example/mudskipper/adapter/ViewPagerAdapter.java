@@ -1,6 +1,5 @@
 package com.example.mudskipper.adapter;
 
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -8,7 +7,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
-
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
     private static final int CARD_ITEM_SIZE = 10;

@@ -18,19 +18,29 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.mudskipper.R;
+import com.example.mudskipper.activity.ProjectDetailActivity;
 import com.example.mudskipper.activity.TrendingActivity;
 import com.example.mudskipper.model.MovieModel;
+import com.example.mudskipper.model.ProjectModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-
 public class DiscoverFragment extends Fragment implements SearchView.OnQueryTextListener {
-
+    public static final String EXTRA_MESSAGE = "";
     LinearLayout category_lay,trending_layout;
     Context context_f;
     ArrayList<String> category_arraylist =new ArrayList<>();
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     //search bar
     //declare variables
@@ -39,6 +49,7 @@ public class DiscoverFragment extends Fragment implements SearchView.OnQueryText
     SearchView editSearch;
     //String [] movieList;
     ArrayList<MovieModel> arrayList = new ArrayList<>();
+    private ArrayList<ProjectModel> project = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,6 +74,7 @@ public class DiscoverFragment extends Fragment implements SearchView.OnQueryText
             //bind all strings into an array
             arrayList.add(movieNames);
         }
+
         //pass results to ListViewAdapter class
         adapter = new ListViewAdapter(context_f, arrayList);
         //bind Adapter to ListView
@@ -78,6 +90,8 @@ public class DiscoverFragment extends Fragment implements SearchView.OnQueryText
 
             category_lay.addView(category_view);
         }
+
+        /*
         trending_layout.removeAllViews();
         for ( int i=0; i<10; i++){
             View category_view = LayoutInflater.from(context_f).inflate(R.layout.trending_video_row, null);
@@ -97,7 +111,9 @@ public class DiscoverFragment extends Fragment implements SearchView.OnQueryText
                     startActivity(intent);
                 }
             });
-        }
+         */
+
+        getProjects();
         return view;
     }
 
@@ -131,9 +147,7 @@ public class DiscoverFragment extends Fragment implements SearchView.OnQueryText
 
     public class ListViewAdapter extends BaseAdapter
     {
-
         // Declare Variables
-
         Context mContext;
         LayoutInflater inflater;
         private List<MovieModel> animalNamesList = null;
@@ -213,6 +227,54 @@ public class DiscoverFragment extends Fragment implements SearchView.OnQueryText
                 }
             }
             notifyDataSetChanged();
+        }
+    }
+
+    public void getProjects(){
+        CollectionReference projects = db.collection("projects");
+        projects.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()){
+                    QuerySnapshot document = task.getResult();
+                    for (DocumentSnapshot projects : document.getDocuments()){
+                        project.add(new ProjectModel(projects.getString("project_name"), projects.getString("project_description"), projects.getString("video_link"), projects.getString("likes")));
+                    }
+//                    if (project.size() == 1) {
+//                        num_of_project.setText(project.size() + " Project");
+//                    } else {
+//                        num_of_project.setText(project.size() + " Projects");
+//                    }
+                showProjects();
+            }
+        }
+    });
+}
+
+    private void showProjects(){
+        trending_layout.removeAllViews();
+        for ( int i=0; i<project.size(); i++){
+            View category_view = LayoutInflater.from(context_f).inflate(R.layout.trending_video_row, null);
+            TextView category_name = category_view.findViewById(R.id.category_name);
+            TextView total_likes = category_view.findViewById(R.id.total_likes);
+            total_likes.setText(project.get(i).getLikes());
+            ImageView trending_image = category_view.findViewById(R.id.trending_image);
+            trending_image.setImageResource(R.drawable.dummy_trending);
+            category_name.setText(project.get(i).getProject_name());
+            Picasso.get().load("https://img.youtube.com/vi/" + project.get(i).getVideo_id() + "/hqdefault.jpg").into(trending_image);
+            trending_layout.addView(category_view);
+
+            int finalI = i;
+            category_view.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Intent intent = new Intent(getActivity(), ProjectDetailActivity.class);
+                    intent.putExtra(EXTRA_MESSAGE, project.get(finalI).getProject_name());
+                    startActivity(intent);
+                }
+            });
         }
     }
 }

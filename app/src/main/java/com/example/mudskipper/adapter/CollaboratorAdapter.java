@@ -40,14 +40,12 @@ public class CollaboratorAdapter extends RecyclerView.Adapter<CollaboratorAdapte
             itemView.setOnClickListener(this);
             mName = itemView.findViewById(R.id.collaborator_name);
             mRole = itemView.findViewById(R.id.collaborator_role);
-
         }
 
         @Override
         public void onClick(View v) {
             mListener.onClick(v, getAdapterPosition());
         }
-
     }
 
     @NonNull
@@ -63,7 +61,6 @@ public class CollaboratorAdapter extends RecyclerView.Adapter<CollaboratorAdapte
         CollaboratorModel collaborator = collaboratorList.get(position);
         holder.mName.setText(collaborator.getCollaborator_name());
         holder.mRole.setText(collaborator.getCollaborator_role());
-
     }
 
     @Override

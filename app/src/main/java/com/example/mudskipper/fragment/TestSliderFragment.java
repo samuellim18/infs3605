@@ -24,7 +24,6 @@ public class TestSliderFragment extends Fragment {
 
     FragmentTestSliderBinding binding;
 
-
     // tab titles
     private String[] titles = new String[]{"About", "Projects"};
 

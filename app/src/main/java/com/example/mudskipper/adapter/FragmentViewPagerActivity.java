@@ -12,8 +12,6 @@ import com.example.mudskipper.databinding.ActivityFragmentViewPagerBinding;
 import com.example.mudskipper.fragment.ProfileAboutDetailsFragment;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-
-
 public class FragmentViewPagerActivity extends AppCompatActivity {
 
     ActivityFragmentViewPagerBinding binding;
@@ -54,7 +52,6 @@ public class FragmentViewPagerActivity extends AppCompatActivity {
                     return new ProfileAboutDetailsFragment();
                 case 1:
                     return new ProfileAboutDetailsFragment();
-
             }
             return new ProfileAboutDetailsFragment();
         }

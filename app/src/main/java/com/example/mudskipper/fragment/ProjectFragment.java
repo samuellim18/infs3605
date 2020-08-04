@@ -87,7 +87,6 @@ public class ProjectFragment extends Fragment {
         getProjects();
 
         return view;
-
     }
 
     public void getProject() {
@@ -108,7 +107,6 @@ public class ProjectFragment extends Fragment {
                     //Log.d(TAG, "get failed with ", task.getException());
                     System.out.println("No such doc");
                 }
-
             }
         });
     }
@@ -134,7 +132,6 @@ public class ProjectFragment extends Fragment {
                 }
             }
         });
-
     }
 
     public void showProjects() {
@@ -146,10 +143,8 @@ public class ProjectFragment extends Fragment {
                 startActivity(intent);
             }
         };
-
         mAdapter = new ProjectAdapter(project, listener);
         mRecyclerView.setAdapter(mAdapter);
         progressDialog.dismiss();
     }
-
 }
