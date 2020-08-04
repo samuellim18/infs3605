@@ -112,7 +112,7 @@ public class AddCollaboratorDialog extends AppCompatDialogFragment implements Ad
                 if (task.isSuccessful()) {
                     QuerySnapshot document = task.getResult();
                     for (DocumentSnapshot collaborators : document.getDocuments()) {
-                        collaborator.add(collaborators.getString("name"));
+                        collaborator.add(collaborators.getString("name") + " (" + collaborators.getString("email") + ")");
                     }
 
                 }

@@ -87,8 +87,6 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
         });
 
         collaborator_list = view.findViewById(R.id.lv_collaborator);
-        /*collaborator_adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, collaborator_name);
-        collaborator_list.setAdapter(collaborator_adapter);*/
         collaborator_adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_2, android.R.id.text1, collaborator_name){
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
