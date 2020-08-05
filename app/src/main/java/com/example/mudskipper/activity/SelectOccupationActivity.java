@@ -54,6 +54,8 @@ public class SelectOccupationActivity extends AppCompatActivity implements Expan
     List<KeyPairBoolData> designBooleanList = new ArrayList<>();
     List<KeyPairBoolData> freelanceBooleanList = new ArrayList<>();
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,8 +112,9 @@ public class SelectOccupationActivity extends AppCompatActivity implements Expan
         setSpinner(freelanceSpinner, freelanceArrayList, freelanceBooleanList);
         setSpinner(designSpinner,designArrayList, designBooleanList);
         setSpinner(photographerSpinner,photoArrayList, photographyBooleanList);
-    }
 
+
+    }
     private void prepareListData() {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
@@ -120,12 +123,15 @@ public class SelectOccupationActivity extends AppCompatActivity implements Expan
         for (int a =0;a<occupationsArrayList.size();a++){
             listDataHeader.add(occupationsArrayList.get(a));
         }
+
+
         listDataChild.put(listDataHeader.get(0), directingArrayList); // Header, Child data
         listDataChild.put(listDataHeader.get(1), actingArrayList);
         listDataChild.put(listDataHeader.get(2), photoArrayList);
         listDataChild.put(listDataHeader.get(3), designArrayList);
         listDataChild.put(listDataHeader.get(4), freelanceArrayList);
     }
+
 
     @Override
     public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {

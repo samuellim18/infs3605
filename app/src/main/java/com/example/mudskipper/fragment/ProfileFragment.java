@@ -270,54 +270,54 @@ public class ProfileFragment extends Fragment
         mContext_f= context;
         super.onAttach(context);
     }
-//    public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapter.ViewHolder>
-//    {
-//        Context context;
-//        public HomeRecyclerViewAdapter(Context context)
-//        {
-//            this.context = context;
-//        }
-//
-//        @NonNull
-//        @Override
-//        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-//        {
-//            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.project_row,parent,false);
-//            ViewHolder viewHolder = new ViewHolder(view);
-//            return viewHolder;
-//        }
-//
-//        @Override
-//        public void onBindViewHolder(@NonNull ViewHolder holder, final int position)
-//        {
-//            //   Glide.with(context).load(userInformation.getImage()).into(holder.menuImage);
-//
-//            holder.menuImage.setImageResource(img_arraylist.get(position));
-//            holder.menuImage.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v)
-//                {
-//
-//                }
-//            });
-//        }
-//
-//        @Override
-//        public int getItemCount()
-//        {
-//            return img_arraylist.size();
-//        }
-//
-//        public class ViewHolder extends RecyclerView.ViewHolder
-//        {
-//            public ImageView menuImage;
-//
-//            public ViewHolder(@NonNull View itemView)
-//            {
-//                super(itemView);
-//                context = itemView.getContext();
-//                menuImage = itemView.findViewById(R.id.menu_image);
-//            }
-//        }
-//    }
+    public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapter.ViewHolder>
+    {
+        Context context;
+        public HomeRecyclerViewAdapter(Context context)
+        {
+            this.context = context;
+        }
+
+        @NonNull
+        @Override
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+        {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.project_row,parent,false);
+            ViewHolder viewHolder = new ViewHolder(view);
+            return viewHolder;
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull ViewHolder holder, final int position)
+        {
+            //   Glide.with(context).load(userInformation.getImage()).into(holder.menuImage);
+
+            holder.menuImage.setImageResource(img_arraylist.get(position));
+            holder.menuImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v)
+                {
+
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount()
+        {
+            return img_arraylist.size();
+        }
+
+        public class ViewHolder extends RecyclerView.ViewHolder
+        {
+            public ImageView menuImage;
+
+            public ViewHolder(@NonNull View itemView)
+            {
+                super(itemView);
+                context = itemView.getContext();
+                menuImage = itemView.findViewById(R.id.menu_image);
+            }
+        }
+    }
 }

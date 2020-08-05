@@ -1,11 +1,18 @@
 package com.example.mudskipper.activity;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,12 +23,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 
 import com.androidbuts.multispinnerfilter.KeyPairBoolData;
 import com.androidbuts.multispinnerfilter.MultiSpinnerSearch;
 import com.androidbuts.multispinnerfilter.SpinnerListener;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.mudskipper.R;
+import com.example.mudskipper.fragment.AbtAndProjProfileFragments;
 import com.example.mudskipper.fragment.ProfileFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -36,12 +49,20 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -71,6 +92,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private  List<String> nswCities;
     private  List<String> ausStates;
     private  List<String> vicCities;
+     String mCurrentPhotoPath ="" ;
      List<KeyPairBoolData> listArrayStates = new ArrayList<>();
      List<KeyPairBoolData> listArraySCities = new ArrayList<>();
      List<String> skillList;
@@ -79,6 +101,8 @@ public class EditProfileActivity extends AppCompatActivity {
     MultiSpinnerSearch skillMultiSpinner;
     private final int PICK_IMAGE_REQUEST = 71;
     Bitmap bitmapPic;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -117,6 +141,8 @@ public class EditProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
     }
 
     private void chooseImage() {
@@ -135,13 +161,76 @@ public class EditProfileActivity extends AppCompatActivity {
             filePath = data.getData();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                edit_profile_pic.setImageBitmap(bitmap);
+                Glide
+                        .with(this)
+                        .load(filePath)
+                        .apply(new RequestOptions().override(600, 200))
+                        .into(edit_profile_pic);
             }
             catch (IOException e)
             {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void rotateImage(Bitmap bitmap){
+
+        ExifInterface exifInterface = null;
+
+        try {
+            exifInterface = new ExifInterface(filePath.getPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        int orientation = exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
+        Matrix matrix = new Matrix();
+        switch (orientation) {
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                matrix.setRotate(90);
+                break;
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                matrix.setRotate(180);
+                break;
+            default:
+        }
+        Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        edit_profile_pic.setImageBitmap(rotatedBitmap);
+    }
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String imageFileName = "JPEG_" + mAuth.getUid();
+
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpeg"        /* suffix */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        mCurrentPhotoPath = image.getAbsolutePath();
+        System.out.println(mCurrentPhotoPath);
+        return image;
+    }
+    public static void copyStream(InputStream input, OutputStream output) throws IOException {
+        byte[] buffer = new byte[1024];
+        int bytesRead;
+        while ((bytesRead = input.read(buffer)) != -1) {
+            output.write(buffer, 0, bytesRead);
+        }
+    }
+
+    public byte[] getDownsizedImageBytes(Bitmap fullBitmap, int scaleWidth, int scaleHeight) throws IOException {
+
+        Bitmap scaledBitmap = Bitmap.createScaledBitmap(fullBitmap, scaleWidth, scaleHeight, true);
+
+        // 2. Instantiate the downsized image content as a byte[]
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        scaledBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] downsizedImageBytes = baos.toByteArray();
+
+        return downsizedImageBytes;
     }
 
     private void uploadImage() {
@@ -152,7 +241,7 @@ public class EditProfileActivity extends AppCompatActivity {
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            StorageReference imgRef = storageRef.child("images/"+ email);
+            StorageReference imgRef = storageRef.child("images/"+ mAuth.getUid());
             imgRef.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -176,26 +265,10 @@ public class EditProfileActivity extends AppCompatActivity {
                             progressDialog.setMessage("Uploaded "+(int)progress+"%");
                         }
                     });
-            try {
-                ProfileFragment profileFragment = new ProfileFragment();
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                Intent intent = new Intent(EditProfileActivity.this, ProfileFragment.class);
-                bitmapPic = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                bitmapPic.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                byte[] byteArray = stream.toByteArray();
-                intent.putExtra("image",byteArray);
-                //intent.putExtra("bitmap", bitmapPic);
-                Bundle bundle  =new Bundle();
-                bundle.putByteArray("image",byteArray);
-                profileFragment.setArguments(bundle);
-                fragmentManager.beginTransaction().replace(R.id.container,profileFragment).commit();
-            }
-            catch (IOException e)
-            {
-                e.printStackTrace();
-            }
         }
+
+
+
     }
 
     public void getData(){
@@ -221,38 +294,7 @@ public class EditProfileActivity extends AppCompatActivity {
 //                        spinnerCity.setHintText(cityS);
 //                        spinnerState.setHintText(stateS);
                         epPhone.setText(oldPhone);
-                        String[] oldSkillArray = oldSkills.split(",");
-                        for (int i = 0; i < skillList.size(); i++) {
-                            KeyPairBoolData h = new KeyPairBoolData();
-                            h.setId(i + 1);
-                            h.setName(skillList.get(i));
-                            h.setSelected(false);
-                            listArraySkills.add(h);
-                        }
 
-                        for(String skill :oldSkillArray){
-                            for(int i = 0;  i<listArraySkills.size();i++){
-                                if (listArraySkills.get(i).getName().equals(skill)){
-                                    listArraySkills.get(i).setSelected(true);
-                                }
-                            }
-                        }
-
-                        skillMultiSpinner.setItems(listArraySkills,-1 , new SpinnerListener() {
-
-                            @Override
-                            public void onItemsSelected(List<KeyPairBoolData> items) {
-
-                                for (int i = 0; i < items.size(); i++) {
-                                    if (items.get(i).isSelected()) {
-                                        Log.i(TAG, i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
-                                        mSkills.add(items.get(i).getName());
-                                    }
-                                }
-                            }
-                        });
-
-                        skillMultiSpinner.setHintText(oldSkills);
                         epDescription.setText(oldDescription);
                         spinnerState.setLimit(1, new MultiSpinnerSearch.LimitExceedListener() {
                             @Override
@@ -374,5 +416,65 @@ public class EditProfileActivity extends AppCompatActivity {
                         "mobile_phone", newPhone,
                         "skills",newSkills
                 );
+//        Fragment profileFragment  = new AbtAndProjProfileFragments();
+//        loadFragment(profileFragment);
     }
+
+    private void loadFragment(Fragment fragment)
+    {
+        String fragment_Tag = "MyProfile Fragment";
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.detach(fragment).attach(fragment).commit();
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+
+    }
+
+    //GOT FROM:  https://stackoverflow.com/questions/18573774/how-to-reduce-an-image-file-size-before-uploading-to-a-server
+    public File reduceImageSize(File file){
+        try {
+
+            // BitmapFactory options to downsize the image
+            BitmapFactory.Options o = new BitmapFactory.Options();
+            o.inJustDecodeBounds = true;
+            o.inSampleSize = 6;
+            // factor of downsizing the image
+
+            FileInputStream inputStream = new FileInputStream(file);
+            //Bitmap selectedBitmap = null;
+            BitmapFactory.decodeStream(inputStream, null, o);
+            inputStream.close();
+
+            // The new size we want to scale to
+            final int REQUIRED_SIZE=500;
+
+            // Find the correct scale value. It should be the power of 2.
+            int scale = 1;
+            while(o.outWidth / scale / 2 >= REQUIRED_SIZE &&
+                    o.outHeight / scale / 2 >= REQUIRED_SIZE) {
+                scale *= 2;
+            }
+
+            BitmapFactory.Options o2 = new BitmapFactory.Options();
+            o2.inSampleSize = scale;
+            inputStream = new FileInputStream(file);
+
+            Bitmap selectedBitmap = BitmapFactory.decodeStream(inputStream, null, o2);
+            inputStream.close();
+
+            // here i override the original image file
+            file.createNewFile();
+            FileOutputStream outputStream = new FileOutputStream(file);
+
+            selectedBitmap.compress(Bitmap.CompressFormat.JPEG, 100 , outputStream);
+
+            return file;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
 }

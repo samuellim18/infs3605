@@ -2,6 +2,7 @@ package com.example.mudskipper.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +25,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.lang.reflect.Array;
@@ -184,12 +187,15 @@ public class SignupActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 
     private void regNewUser() {
         nameS = name.getText().toString();
         emailS = email.getText().toString();
         passS = pass.getText().toString();
+
 
         if (TextUtils.isEmpty(emailS)) {
             Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
