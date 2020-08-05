@@ -27,6 +27,7 @@
     <string name="description">Description</string>
     <string name="collaborator">Collaborators</string>
     <string name="video_link">Video Link</string>
+    <string name="delete_project">Delete Project</string>
 
     <string name="category">Categories</string>
     <string name="trending">Trending</string>

@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.ProjectDetailActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -17,10 +17,12 @@
             android:id="@+id/tv_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="17sp"
+
             android:fontFamily="@font/lato"
             android:ellipsize="end"
             android:maxLines="1"
-            android:layout_marginRight="17sp"
+
             android:textColor="#2F87C7"
             android:textSize="@dimen/_14sdp"
             android:textStyle="bold" />
@@ -56,29 +58,31 @@
                 android:layout_margin="@dimen/_10sdp"
                 android:fontFamily="@font/lato"
                 android:textColor="@android:color/black"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:typeface="normal" />
 
         <LinearLayout
+            android:id="@+id/likearea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="@dimen/_5sdp" >
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:src="@drawable/ic_baseline_thumb_up_24" />
 
             <TextView
                 android:id="@+id/tv_likes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:fontFamily="@font/lato"
                 android:textColor="@android:color/black"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:typeface="normal" />
 
         </LinearLayout>
@@ -88,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_10sdp"
                 android:fontFamily="@font/lato"
-                android:text="Description"
+                android:text="@string/description"
                 android:textColor="@android:color/black"
                 android:textSize="17sp"
                 android:textStyle="bold"
@@ -98,21 +102,21 @@
                 android:id="@+id/tv_project_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:fontFamily="@font/lato"
                 android:textColor="@android:color/tertiary_text_dark"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:typeface="normal" />
 
             <TextView
                 android:id="@+id/tv_project_collaborator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:fontFamily="@font/lato"
-                android:text="Collaborators"
+                android:text="@string/collaborator"
                 android:textColor="@android:color/black"
                 android:textSize="17sp"
                 android:textStyle="bold" />
@@ -121,13 +125,13 @@
                 android:id="@+id/collaboratorRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@android:color/white"
                 android:clipToPadding="false"
                 android:padding="4dp"
                 android:scrollbars="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:background="@android:color/white"/>
+                app:layout_constraintStart_toStartOf="parent" />
 
         </LinearLayout>
     </ScrollView>
@@ -137,7 +141,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="1"
-        android:gravity="center">
+        android:gravity="center" >
 
         <Button
             android:id="@+id/delete_project_btn"
@@ -147,7 +151,7 @@
             android:layout_marginBottom="@dimen/_15sdp"
             android:background="@drawable/gray_btn"
             android:fontFamily="@font/lato"
-            android:text="Delete Project"
+            android:text="@string/delete_project"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
             android:textSize="@dimen/_10sdp"
