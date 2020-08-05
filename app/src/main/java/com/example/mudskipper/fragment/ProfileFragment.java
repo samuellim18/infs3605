@@ -26,9 +26,6 @@ import com.example.mudskipper.R;
 import com.example.mudskipper.UniversalImageLoader;
 import com.example.mudskipper.activity.EditProfileActivity;
 import com.example.mudskipper.activity.LoginActivity;
-import com.example.mudskipper.activity.ProjectDetailActivity;
-import com.example.mudskipper.adapter.ProjectAdapter;
-import com.example.mudskipper.model.ProjectModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,24 +37,24 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.model.DocumentCollections;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+
 public class ProfileFragment extends Fragment
 {
-//  ArrayList<Integer> img_arraylist =new ArrayList<>();
+
+    ArrayList<Integer> img_arraylist =new ArrayList<>();
     private Context mContext_f;
     RecyclerView myRecyclerView;
     Button follow;
-//  HomeRecyclerViewAdapter adapter;
+    HomeRecyclerViewAdapter adapter;
     CircleImageView profile_photo;
     ImageView profile_menu;
     String TAG = "Profile ";
@@ -76,13 +73,7 @@ public class ProfileFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        Bundle bundle = getArguments();
-        if(bundle!=null){
-            byte[] byteArray = getArguments().getByteArray("image");
-            // bitmap = intent.getParcelableExtra("bitmap");
-            bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-            profile_photo.setImageBitmap(bitmap);
-        }
+
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         setHasOptionsMenu(true);
         myRecyclerView = view.findViewById(R.id.recyclerview_project);
@@ -94,6 +85,16 @@ public class ProfileFragment extends Fragment
         profileSkills = view.findViewById(R.id.profileSkills);
         profile_menu = view.findViewById(R.id.profile_menu1);
         follow= view.findViewById(R.id.follow_btn);
+        Bundle bundle = getArguments();
+        if(bundle!=null){
+            byte[] byteArray = getArguments().getByteArray("image");
+            // bitmap = intent.getParcelableExtra("bitmap");
+            bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+            profile_photo.setImageBitmap(bitmap);
+        }else{
+            System.out.println("profile photo setting");
+            profile_photo.setImageResource(R.drawable.user_default_black);
+        }
         follow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,17 +111,17 @@ public class ProfileFragment extends Fragment
         });
 
         getData();
-//        img_arraylist.clear();
-//        for (int i = 0; i < 35; i++)
-//        {
-//            img_arraylist.add(R.drawable.dummy_trending);
-//            img_arraylist.add(R.drawable.dummy_trending);
-//        }
+        img_arraylist.clear();
+        for (int i = 0; i < 35; i++)
+        {
+            img_arraylist.add(R.drawable.dummy_trending);
+            img_arraylist.add(R.drawable.dummy_trending);
+        }
 
-//        adapter = new HomeRecyclerViewAdapter(mContext_f);
+        adapter = new HomeRecyclerViewAdapter(mContext_f);
         int numberOfColumns = 2;
-//        myRecyclerView.setLayoutManager(new GridLayoutManager(mContext_f, numberOfColumns));
-//        myRecyclerView.setAdapter(adapter);
+        myRecyclerView.setLayoutManager(new GridLayoutManager(mContext_f, numberOfColumns));
+        myRecyclerView.setAdapter(adapter);
         InitImgLoader();
         setProfilePic();
         profile_photo.setOnClickListener(new View.OnClickListener() {
@@ -131,6 +132,7 @@ public class ProfileFragment extends Fragment
                 startActivityForResult(i, RESULT_LOAD_IMAGE);
             }
         });
+
 
         System.out.println(email);
         DocumentReference docRef = db.collection("users").document(email);
@@ -150,6 +152,7 @@ public class ProfileFragment extends Fragment
                         profileSkills.setText("Skills: " + skills);
                         profileDescription.setText("Description: " + description);
 
+
                         System.out.println(document);
                     } else {
                         Log.d(TAG, "No such document");
@@ -162,6 +165,8 @@ public class ProfileFragment extends Fragment
         });
         return view;
     }
+
+
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -203,6 +208,8 @@ public class ProfileFragment extends Fragment
         // Create a reference to the cities collection
         CollectionReference usersRef = db.collection("users");
 
+
+
         DocumentReference docRef = db.collection("users").document(email);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -220,6 +227,7 @@ public class ProfileFragment extends Fragment
                 } else {
                     Log.d(TAG, "get failed with ", task.getException());
                 }
+
             }
         });
     }

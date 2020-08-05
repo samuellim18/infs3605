@@ -10,10 +10,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.mudskipper.R;
 import com.example.mudskipper.fragment.DiscoverFragment;
-import com.example.mudskipper.fragment.Profile2;
-import com.example.mudskipper.fragment.ProfileFragment;
 import com.example.mudskipper.fragment.ProjectFragment;
-import com.example.mudskipper.fragment.TestSliderFragment;
+import com.example.mudskipper.fragment.AbtAndProjProfileFragments;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import butterknife.BindView;
@@ -58,7 +56,7 @@ public class MainActivity extends AppCompatActivity
                     case R.id.nav_profile:
                         /*toolbar_title.setVisibility(View.VISIBLE);
                         toolbar_title.setText("Messages");*/
-                        fragment = new TestSliderFragment();
+                        fragment = new AbtAndProjProfileFragments();
                         loadFragment(fragment,3);
                         return true;
                 }
@@ -68,7 +66,7 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-    private void loadFragment(Fragment fragment,int fragment_number)
+    public void loadFragment(Fragment fragment,int fragment_number)
     {
         if (fragment_number==1)
         {
@@ -85,4 +83,6 @@ public class MainActivity extends AppCompatActivity
         transaction.replace(R.id.content_frame, fragment);
         transaction.commit();
     }
+
+
 }

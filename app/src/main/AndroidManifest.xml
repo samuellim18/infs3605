@@ -11,10 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".activity.OpenMessageActivity"></activity>
         <activity android:name=".activity.ProjectDetailActivity" />
         <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -25,9 +27,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.MainActivity" />
-
-        <activity android:name="com.example.mudskipper.activity.SelectOccupationActivity"/>
-        <activity android:name="com.example.mudskipper.activity.SelectInterestActivity"/>
+        <activity android:name=".activity.SelectOccupationActivity" />
+        <activity android:name=".activity.SelectInterestActivity" />
+        <activity android:name=".activity.MessageActivity"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
