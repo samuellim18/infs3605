@@ -31,6 +31,7 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -68,11 +69,29 @@ public class ProjectDetailActivity extends YouTubeBaseActivity {
     private static String YOUTUBE_API_KEY = "AIzaSyAQL8_xEae7uQ-8Mdfzj9Wvs7Kb1aVb7SU";
     //youtube player to play video when new video selected
     private YouTubePlayer youTubePlayer;
+    LinearLayout likearea;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_detail);
+        likearea = findViewById(R.id.likearea);
+        likearea.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                int totalLike = 0;
+
+                if (Integer.parseInt(project.getLikes()) > 0) {
+                    totalLike = (Integer.parseInt(project.getLikes()) + 1);
+                } else {
+                    totalLike = 1;
+                }
+                tv_likes.setText(totalLike + "");
+                project.setLikes(totalLike +"");
+                DocumentReference ref = db.collection("projects").document(project.getProject_name());
+                ref.update("likes", project.getLikes());
+            }
+        });
 
         mRecyclerView = findViewById(R.id.collaboratorRecyclerView);
         mRecyclerView.setHasFixedSize(true);
@@ -143,7 +162,6 @@ public class ProjectDetailActivity extends YouTubeBaseActivity {
                     //Log.d(TAG, "get failed with ", task.getException());
                     System.out.println("No such doc");
                 }
-
             }
         });
     }
@@ -196,7 +214,5 @@ public class ProjectDetailActivity extends YouTubeBaseActivity {
                 builder.setNegativeButton(android.R.string.no, null);
                 builder.setCancelable(false);
                 builder.show();
-
     }
-
 }

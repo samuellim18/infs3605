@@ -17,6 +17,7 @@ import com.example.mudskipper.R;
  * Use the {@link CardFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+
 public class CardFragment extends Fragment {
     private static final String ARG_COUNT = "param1";
     private Integer counter;
@@ -28,6 +29,7 @@ public class CardFragment extends Fragment {
     public CardFragment() {
         // Required empty public constructor
     }
+
     public static CardFragment newInstance(Integer counter) {
         CardFragment fragment = new CardFragment();
         Bundle args = new Bundle();
@@ -35,6 +37,7 @@ public class CardFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,12 +45,14 @@ public class CardFragment extends Fragment {
             counter = getArguments().getInt(ARG_COUNT);
         }
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_card, container, false);
     }
+
     @Override public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         view.setBackgroundColor(ContextCompat.getColor(getContext(), COLOR_MAP[counter]));

@@ -89,7 +89,6 @@ public class TrendingActivity extends YouTubeBaseActivity
                     //cue the 1st video by default
                     youTubePlayer.loadVideo(video_id);
                 }
-
             }
 
             @Override

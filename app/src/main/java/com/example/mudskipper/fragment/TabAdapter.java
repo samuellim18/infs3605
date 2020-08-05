@@ -1,6 +1,5 @@
 package com.example.mudskipper.fragment;
 
-
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -11,17 +10,23 @@ import java.util.List;public class TabAdapter extends FragmentStatePagerAdapter 
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitleList = new ArrayList<>();TabAdapter(FragmentManager fm) {
         super(fm);
-    }@Override
+    }
+
+    @Override
     public Fragment getItem(int position) {
         return mFragmentList.get(position);
     }public void addFragment(Fragment fragment, String title) {
         mFragmentList.add(fragment);
         mFragmentTitleList.add(title);
-    }@Nullable
+    }
+
+    @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
         return mFragmentTitleList.get(position);
-    }@Override
+    }
+
+    @Override
     public int getCount() {
         return mFragmentList.size();
     }

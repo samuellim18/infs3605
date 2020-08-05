@@ -76,7 +76,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
     private void loginUser() {
         emailS = email.getText().toString();
         passS = pass.getText().toString();

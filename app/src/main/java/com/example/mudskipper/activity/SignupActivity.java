@@ -58,7 +58,6 @@ public class SignupActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         initializeUI();
 
-
         regButton = findViewById(R.id.btn_register);
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +93,7 @@ public class SignupActivity extends AppCompatActivity {
                         "Limit exceed ", Toast.LENGTH_LONG).show();
             }
         });
+
         spinnerCity.setLimit(1, new MultiSpinnerSearch.LimitExceedListener() {
             @Override
             public void onLimitListener(KeyPairBoolData data) {
@@ -101,6 +101,7 @@ public class SignupActivity extends AppCompatActivity {
                         "Limit exceed ", Toast.LENGTH_LONG).show();
             }
         });
+
         for (int i = 0; i < ausStates.size(); i++) {
             KeyPairBoolData h = new KeyPairBoolData();
             h.setId(i + 1);
@@ -140,6 +141,7 @@ public class SignupActivity extends AppCompatActivity {
                                     }
                                 });
                                 break;
+
                             case "VIC":
                                 for (int vic = 0; vic < vicCities.size(); vic++) {
                                     KeyPairBoolData h = new KeyPairBoolData();
@@ -164,15 +166,12 @@ public class SignupActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 
     private void regNewUser(){
         nameS = name.getText().toString();
         emailS = email.getText().toString();
         passS = pass.getText().toString();
-
 
         if (TextUtils.isEmpty(emailS)) {
             Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
@@ -227,7 +226,6 @@ public class SignupActivity extends AppCompatActivity {
                             Toast.makeText(SignupActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
-
                         // ...
                     }
                 });

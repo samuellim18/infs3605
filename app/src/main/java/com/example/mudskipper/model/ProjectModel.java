@@ -10,6 +10,10 @@ public class ProjectModel {
     private String video_id;
     private String likes;
 
+    public void setLikes(String likes){
+        this.likes = likes;
+    }
+
     public ProjectModel(String project_name, String project_description, String video_link, String likes) {
         this.project_name = project_name;
         this.project_description = project_description;
