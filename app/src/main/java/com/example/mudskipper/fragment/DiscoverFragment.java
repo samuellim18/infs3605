@@ -252,8 +252,8 @@ public class DiscoverFragment extends Fragment implements SearchView.OnQueryText
         category_lay.removeAllViews();
         for (int i = 0; i < category_arraylist.size(); i++) {
             View category_view = LayoutInflater.from(context_f).inflate(R.layout.category_row, null);
-//            ImageView category_image = category_view.findViewById(R.id.category_image);
-//            Picasso.get().load(category_arraylist.get(i).category_image).into(category_image);
+            ImageView category_image = category_view.findViewById(R.id.category_image);
+            Picasso.get().load(category_arraylist.get(i).category_image).into(category_image);
 //            Glide.with(this).load(category_arraylist.get(i).category_image).into(category_image);
             TextView category_name = category_view.findViewById(R.id.category_name);
             category_name.setText(category_arraylist.get(i).category_name);

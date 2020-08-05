@@ -19,9 +19,11 @@
             app:cardElevation="@dimen/_3sdp" >
 
             <ImageView
+                android:id="@+id/category_image"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_100sdp"
-                android:src="#2F87C7"/>
+                android:src="#2F87C7"
+                android:scaleType="centerCrop"/>
 
         </androidx.cardview.widget.CardView>
 
