@@ -23,7 +23,6 @@ import com.example.mudskipper.activity.OpenMessageActivity;
 
 import com.example.mudskipper.adapter.FragmentViewPagerActivity;
 import com.example.mudskipper.databinding.ActivityFragmentViewPagerBinding;
-//import com.example.mudskipper.databinding.FragmentTestSliderBinding;
 import com.example.mudskipper.databinding.FragmentAbtProjectProfileBinding;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -63,14 +62,14 @@ public class AbtAndProjProfileFragments extends Fragment {
     private void init() {
         // removing toolbar elevation
         //getSupportActionBar().setElevation(0);
-//        binding.profilePhoto.setImageResource(R.drawable.user_default_black);
-//        binding.logout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                mAuth.getInstance().signOut();
-//                startActivity(new Intent(getActivity(), LoginActivity.class));
-//            }
-//        });
+        binding.profilePhoto.setImageResource(R.drawable.user_default_black);
+        binding.logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.getInstance().signOut();
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+            }
+        });
         setData();
         binding.editProfileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,12 +78,12 @@ public class AbtAndProjProfileFragments extends Fragment {
             }
         });
         binding.viewPager.setAdapter(new ViewPagerFragmentAdapter(getActivity()));
-//        binding.messageBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(getContext(), OpenMessageActivity.class));
-//            }
-//        });
+        binding.messageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), OpenMessageActivity.class));
+            }
+        });
 
         // attaching tab mediator
         new TabLayoutMediator(binding.tabLayout, binding.viewPager,
