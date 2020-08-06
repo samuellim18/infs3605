@@ -14,6 +14,7 @@ statement is always skipped
 
 
 """
+
                             for (String email:userList){
                                 Log.e(TAG, "in email loop" + email + "  " + user.getEmail());
                                 if (email.equals(user.getEmail())){
