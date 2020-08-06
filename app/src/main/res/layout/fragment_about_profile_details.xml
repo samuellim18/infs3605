@@ -67,7 +67,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/lato"
-                            android:gravity="start"
+                            android:gravity="left"
                             android:text="Description:"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_12sdp" />
@@ -173,7 +173,7 @@
                             android:textSize="@dimen/_14sdp"
                             android:textStyle="bold" />
 
-                        <TextView android:layout_gravity="start"
+                        <TextView android:layout_gravity="left"
                             android:id="@+id/profileSkills"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -226,7 +226,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:gravity="start"
+                            android:gravity="left"
                             android:id="@+id/actor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -474,7 +474,7 @@
                             android:layout_marginTop="@dimen/_8sdp"
                             android:fontFamily="@font/lato"
                             android:gravity="center"
-                            android:text="Work commitments"
+                            android:text="Work Commitments:"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_14sdp"
                             android:textStyle="bold" />
@@ -524,7 +524,7 @@
                             android:layout_marginTop="@dimen/_8sdp"
                             android:fontFamily="@font/lato"
                             android:gravity="center"
-                            android:text="interests"
+                            android:text="Interests:"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_14sdp"
                             android:textStyle="bold" />

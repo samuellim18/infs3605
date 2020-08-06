@@ -32,7 +32,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0b04d1a4-8ede-461d-9132-779fab93567f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/ProfileAboutDetailsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mudskipper/fragment/ProfileAboutDetailsFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_about_profile_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_about_profile_details.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -465,7 +464,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596720366709</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="profile about details edited (fragment class + xml)">
+      <created>1596720646549</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1596720646549</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -510,7 +516,8 @@
     <MESSAGE value="features added into merge: view count (+1), category tags, tag dropdown in create project form, added creator, can open list of videos in respective category when tag is clicked, filtered search bar" />
     <MESSAGE value="tag update" />
     <MESSAGE value="added profile details (about) drawable icons" />
-    <option name="LAST_COMMIT_MESSAGE" value="added profile details (about) drawable icons" />
+    <MESSAGE value="profile about details edited (fragment class + xml)" />
+    <option name="LAST_COMMIT_MESSAGE" value="profile about details edited (fragment class + xml)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2568" y="311" key="#Custom_Plugin_Repositories" timestamp="1593788601127">
@@ -554,7 +561,7 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="624" y="178" key="AndroidProcessChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1595160421347" />
-    <state x="0" y="29" width="899" height="789" key="CommitChangelistDialog2" timestamp="1596720592216">
+    <state x="0" y="29" width="899" height="789" key="CommitChangelistDialog2" timestamp="1596720646286">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="3734" y="52" key="CommitChangelistDialog2/0.0.1280.680/3200.0.1920.999@3200.0.1920.999" timestamp="1596635353682" />
@@ -564,7 +571,7 @@
     <state x="0" y="29" width="899" height="789" key="CommitChangelistDialog2/0.23.1440.811@0.23.1440.811" timestamp="1594177073240" />
     <state x="306" y="30" key="CommitChangelistDialog2/0.23.1440.814@0.23.1440.814" timestamp="1594158407259" />
     <state x="306" y="30" key="CommitChangelistDialog2/0.23.1440.816@0.23.1440.816" timestamp="1594157867036" />
-    <state x="0" y="29" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1596720592216" />
+    <state x="0" y="29" key="CommitChangelistDialog2/0.23.1440.822@0.23.1440.822" timestamp="1596720646286" />
     <state x="3886" y="202" key="FileChooserDialogImpl" timestamp="1596669626135">
       <screen x="3200" y="0" width="1920" height="999" />
     </state>
@@ -626,7 +633,7 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="547" y="128" key="VCS.ChangeListViewerDialog/0.0.1536.824@0.0.1536.824" timestamp="1595211051486" />
-    <state x="337" y="168" key="Vcs.Push.Dialog.v2" timestamp="1596720372459">
+    <state x="337" y="168" key="Vcs.Push.Dialog.v2" timestamp="1596720650193">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="3649" y="177" key="Vcs.Push.Dialog.v2/0.0.1280.680/3200.0.1920.999@3200.0.1920.999" timestamp="1596635395225" />
@@ -636,7 +643,7 @@
     <state x="337" y="167" key="Vcs.Push.Dialog.v2/0.23.1440.811@0.23.1440.811" timestamp="1594176874767" />
     <state x="337" y="168" key="Vcs.Push.Dialog.v2/0.23.1440.814@0.23.1440.814" timestamp="1594158415611" />
     <state x="337" y="168" key="Vcs.Push.Dialog.v2/0.23.1440.816@0.23.1440.816" timestamp="1594157879729" />
-    <state x="337" y="168" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1596720372459" />
+    <state x="337" y="168" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1596720650193" />
     <state x="3292" y="92" width="1736" height="815" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1596634599511">
       <screen x="3200" y="0" width="1920" height="999" />
     </state>
