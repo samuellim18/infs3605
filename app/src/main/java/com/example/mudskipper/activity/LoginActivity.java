@@ -110,6 +110,9 @@ public class LoginActivity extends AppCompatActivity {
         configureGoogleClient();
     }
 
+
+    //Intent to start google User sign in
+    //Process referenced from : https://stackoverflow.com/questions/38868873/google-sign-in-with-firebase-android
     public void signIntoGoogle() {
         Intent signInIntent = googleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -135,8 +138,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
     }
 
-
-
+    //Log in process, which first checks if the fields are null and notifies the user
     private void loginUser() {
         emailS = email.getText().toString();
         passS = pass.getText().toString();
@@ -172,6 +174,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    //Received the outcome of the google sign in, if successful, run the following code
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -194,6 +197,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    //Authenticates user with firebase after google sign in is successful
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
 
@@ -206,15 +210,13 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.e(TAG, "Signin Success");
+                            //Gets lists of current users in the database
                             getUsersList();
-                            System.out.println(userList.size());
                             FirebaseUser user = mAuth.getCurrentUser();
                             boolean isRegistered = false;
-                            for (String user1 : userList){
-                                System.out.println(user);
-                            }
+
+                            //Checks if the current google user has registered their details from the database
                             for (String email:userList){
-                                System.out.println("looooooooooooooooooooooooooooooopppppppppppppppppppppppppppppp");
                                 Log.e(TAG, "in email loop" + email + "  " + user.getEmail());
                                 if (email.equals(user.getEmail())){
                                     Log.e(TAG, "equal");
@@ -224,6 +226,7 @@ public class LoginActivity extends AppCompatActivity {
                             if (isRegistered==true){
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             }else{
+                                //Brings user to reg page if their data does not exist in the database user list
                                 Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
                                 intent.putExtra("google_userID",mAuth.getUid());
                                 System.out.println(mAuth.getUid());
@@ -236,7 +239,6 @@ public class LoginActivity extends AppCompatActivity {
                             // If sign in fails, display a message to the user.
 
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
-
                             showToastMessage("Firebase Authentication failed:" + task.getException());
                         }
                     }

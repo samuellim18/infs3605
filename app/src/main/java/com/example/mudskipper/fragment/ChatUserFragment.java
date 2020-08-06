@@ -65,6 +65,7 @@ public class ChatUserFragment extends Fragment {
         return view;
     }
 
+    //Search function for the list of users within the realtime database
     private void searchUsers(String string) {
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         Query query = FirebaseDatabase.getInstance().getReference("users").orderByChild("username")
@@ -79,6 +80,8 @@ public class ChatUserFragment extends Fragment {
                     assert user != null;
                     System.out.println(user);
                     if (!searchUsers.getText().toString().equals("")) {
+                        //IF the UID does not equal to the current user, add the selected user into the list of users
+                        //to be set into the recyclerview
                         if (!user.getUid().equals(firebaseUser.getUid())) {
                             mUsers.add(user);
                         }
@@ -96,6 +99,7 @@ public class ChatUserFragment extends Fragment {
         });
     }
 
+    //Gets the list of users to set into the recycler view
     private void readusers(){
         final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference databaseReference  = FirebaseDatabase.getInstance().getReference("users");
@@ -110,6 +114,8 @@ public class ChatUserFragment extends Fragment {
                         User user = dataSnapshot.getValue(User.class);
                         System.out.println(user.getUid() + "userid");
                         System.out.println(firebaseUser.getUid());
+                        //IF the UID does not equal to the current user, add the selected user into the list of users
+                        //to be set into the recyclerview
                         if (!user.getUid().equals(firebaseUser.getUid())) {
                             mUsers.add(user);
                         }

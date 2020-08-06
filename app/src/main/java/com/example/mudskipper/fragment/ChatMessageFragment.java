@@ -87,7 +87,7 @@ public class ChatMessageFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
     }
-
+//OLD METHOD THAT IS REPLACED BY chatList();
 //    private void readChats(){
 //        mUsers = new ArrayList<>();
 //        databaseReference = FirebaseDatabase.getInstance().getReference("users");

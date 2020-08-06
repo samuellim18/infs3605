@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b2e9edf2c8c65c977fd4ac11add269f0/jetified-stream-chat-android-client-1.0.10/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b2e9edf2c8c65c977fd4ac11add269f0/jetified-stream-chat-android-client-1.0.10/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b2e9edf2c8c65c977fd4ac11add269f0/jetified-stream-chat-android-client-1.0.10/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.GetStream/stream-chat-android-client/1.0.10/9fa684a2c3c8f64fa65eec56fb4936f9cf01ec61/stream-chat-android-client-1.0.10-javadoc.jar!/" />

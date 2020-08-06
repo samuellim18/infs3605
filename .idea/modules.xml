@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="mudskipper/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/login_test.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/login_test.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mudskipper.iml" filepath="$PROJECT_DIR$/.idea/modules/mudskipper.iml" group="mudskipper" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mudskipper.iml" filepath="$PROJECT_DIR$/.idea/modules/mudskipper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/mudskipper.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/mudskipper.app.iml" />
     </modules>
   </component>
 </project>
