@@ -40,8 +40,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.common.collect.Sets;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -63,7 +66,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -112,27 +117,30 @@ public class EditProfileActivity extends AppCompatActivity {
         getData();
     }
 
+    //Method to put values in string.xml into a list and link the xml elements with this java class
     public void initializeUI(){
         nswCities = Arrays.asList(getResources().getStringArray(R.array.nsw_cities));
         ausStates = Arrays.asList(getResources().getStringArray(R.array.aus_states));
         vicCities = Arrays.asList(getResources().getStringArray(R.array.vic_cities));
-        skillList= Arrays.asList(getResources().getStringArray(R.array.skillSpinnerItems));
         epName = findViewById(R.id.editP_name);
         epDescription = findViewById(R.id.editP_description);
         epPhone = findViewById(R.id.editP_mobile);
         emailTV  =findViewById(R.id.editP_tv_email);
-        skillMultiSpinner = findViewById(R.id.skillSpinnerMulti);
         spinnerCity = findViewById(R.id.spinnerCities_ep);
         spinnerState = findViewById(R.id.spinnerStates_ep);
         saveData = findViewById(R.id.save_edit_profile);
         edit_profile_pic = findViewById(R.id.edit_profile_photo);
         edit_profile_pic.setImageResource(R.drawable.ic_baseline_person_24);
+
+        //Allows the user to select a profile photo
         edit_profile_pic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 chooseImage();
             }
         });
+
+        //Button to save user data
         saveData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,6 +153,8 @@ public class EditProfileActivity extends AppCompatActivity {
 
     }
 
+    //method launched when user clicks on profile image, launches implicit intent to open a file picker
+    //for user to select an image
     private void chooseImage() {
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -152,6 +162,8 @@ public class EditProfileActivity extends AppCompatActivity {
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
     }
 
+    //After chooseImage() is completed, check if there is any image selected and set into the CircleImageView
+    //profile photo
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -174,65 +186,8 @@ public class EditProfileActivity extends AppCompatActivity {
         }
     }
 
-    private void rotateImage(Bitmap bitmap){
-
-        ExifInterface exifInterface = null;
-
-        try {
-            exifInterface = new ExifInterface(filePath.getPath());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        int orientation = exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
-        Matrix matrix = new Matrix();
-        switch (orientation) {
-            case ExifInterface.ORIENTATION_ROTATE_90:
-                matrix.setRotate(90);
-                break;
-            case ExifInterface.ORIENTATION_ROTATE_180:
-                matrix.setRotate(180);
-                break;
-            default:
-        }
-        Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-        edit_profile_pic.setImageBitmap(rotatedBitmap);
-    }
-
-    private File createImageFile() throws IOException {
-        // Create an image file name
-        String imageFileName = "JPEG_" + mAuth.getUid();
-
-        File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpeg"        /* suffix */
-        );
-
-        // Save a file: path for use with ACTION_VIEW intents
-        mCurrentPhotoPath = image.getAbsolutePath();
-        System.out.println(mCurrentPhotoPath);
-        return image;
-    }
-    public static void copyStream(InputStream input, OutputStream output) throws IOException {
-        byte[] buffer = new byte[1024];
-        int bytesRead;
-        while ((bytesRead = input.read(buffer)) != -1) {
-            output.write(buffer, 0, bytesRead);
-        }
-    }
-
-    public byte[] getDownsizedImageBytes(Bitmap fullBitmap, int scaleWidth, int scaleHeight) throws IOException {
-
-        Bitmap scaledBitmap = Bitmap.createScaledBitmap(fullBitmap, scaleWidth, scaleHeight, true);
-
-        // 2. Instantiate the downsized image content as a byte[]
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        scaledBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] downsizedImageBytes = baos.toByteArray();
-
-        return downsizedImageBytes;
-    }
-
+    //Uploads the image to the cloud storage in firebase if a picture is selected by the user
+    //Referenced from: https://code.tutsplus.com/tutorials/image-upload-to-firebase-in-android-application--cms-29934
     private void uploadImage() {
 
         if(filePath != null)
@@ -266,11 +221,9 @@ public class EditProfileActivity extends AppCompatActivity {
                         }
                     });
         }
-
-
-
     }
 
+    //ON initialization, call this method to get data from database and set into the editText and spinners
     public void getData(){
         DocumentReference docRef = db.collection("users").document(email);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -279,6 +232,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
+                        //Gets data from the document with the relevant field names
                         oldState = document.getString("state");
                         oldCity = document.getString("city");
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
@@ -286,16 +240,11 @@ public class EditProfileActivity extends AppCompatActivity {
                         epName.setText(oldName);
                         emailTV.setText(email);
                         oldPhone=document.getString("mobile_phone");
-                        oldSkills = document.getString("skills");
                         oldDescription = document.getString("description");
-
-                        System.out.println("SKILLS" + oldSkills);
-                        System.out.println("OLD " + oldCity + " " + oldState);
-//                        spinnerCity.setHintText(cityS);
-//                        spinnerState.setHintText(stateS);
                         epPhone.setText(oldPhone);
-
                         epDescription.setText(oldDescription);
+
+                        //Sets the limit of the spinner to 1, only one state and city can be selected each
                         spinnerState.setLimit(1, new MultiSpinnerSearch.LimitExceedListener() {
                             @Override
                             public void onLimitListener(KeyPairBoolData data) {
@@ -310,6 +259,9 @@ public class EditProfileActivity extends AppCompatActivity {
                                         "Limit exceed ", Toast.LENGTH_LONG).show();
                             }
                         });
+
+                        //Sets the states as from the array into the booleanPair, as a default all is false
+                        //So none is selected
                         for (int i = 0; i < ausStates.size(); i++) {
                             KeyPairBoolData h = new KeyPairBoolData();
                             h.setId(i + 1);
@@ -317,8 +269,11 @@ public class EditProfileActivity extends AppCompatActivity {
                             h.setSelected(false);
                             listArrayStates.add(h);
                         }
+                        //Gets the position old city and state from the database values
                         statePosition = ausStates.indexOf(oldState);
                         cityPosition = nswCities.indexOf(oldCity);
+
+                        //Sets the BooleanPair list into the spinner and statePosition as the default selected item
                         spinnerState.setItems(listArrayStates, statePosition,new SpinnerListener() {
 
                             @Override
@@ -351,7 +306,7 @@ public class EditProfileActivity extends AppCompatActivity {
                                                         }
                                                     }
                                                 });
-                                                break;
+                                                //Sets the cities list based on the selection of the state in the previous spinner
                                             case "VIC":
                                                 for (int vic = 0; vic < vicCities.size(); vic++) {
                                                     KeyPairBoolData h = new KeyPairBoolData();
@@ -387,14 +342,11 @@ public class EditProfileActivity extends AppCompatActivity {
             }
         });
     }
-    private View.OnClickListener awesomeOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            updateUserDetails();
-        }
-    };
 
+
+    //This method is called when the saveButton is clicked, updates the user details in the database
     private void updateUserDetails() {
+        DatabaseReference  databaseReference = FirebaseDatabase.getInstance().getReference("users").child(currentUser.getUid());
         newName = epName.getText().toString();
         newDescription  =epDescription.getText().toString();
         newPhone = epPhone.getText().toString();
@@ -416,65 +368,20 @@ public class EditProfileActivity extends AppCompatActivity {
                         "mobile_phone", newPhone,
                         "skills",newSkills
                 );
-//        Fragment profileFragment  = new AbtAndProjProfileFragments();
-//        loadFragment(profileFragment);
-    }
 
-    private void loadFragment(Fragment fragment)
-    {
-        String fragment_Tag = "MyProfile Fragment";
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.detach(fragment).attach(fragment).commit();
-    }
-
-    @Override
-    public void finish() {
-        super.finish();
-
-    }
-
-    //GOT FROM:  https://stackoverflow.com/questions/18573774/how-to-reduce-an-image-file-size-before-uploading-to-a-server
-    public File reduceImageSize(File file){
-        try {
-
-            // BitmapFactory options to downsize the image
-            BitmapFactory.Options o = new BitmapFactory.Options();
-            o.inJustDecodeBounds = true;
-            o.inSampleSize = 6;
-            // factor of downsizing the image
-
-            FileInputStream inputStream = new FileInputStream(file);
-            //Bitmap selectedBitmap = null;
-            BitmapFactory.decodeStream(inputStream, null, o);
-            inputStream.close();
-
-            // The new size we want to scale to
-            final int REQUIRED_SIZE=500;
-
-            // Find the correct scale value. It should be the power of 2.
-            int scale = 1;
-            while(o.outWidth / scale / 2 >= REQUIRED_SIZE &&
-                    o.outHeight / scale / 2 >= REQUIRED_SIZE) {
-                scale *= 2;
+        //Updates the user details in realtime database to update chat details
+        Map<String, Object> updateUser = new HashMap<>();
+        updateUser.put("username", newName);
+        updateUser.put("uid", currentUser.getUid());
+        updateUser.put("search", newName.toLowerCase());
+        databaseReference.setValue(updateUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
             }
-
-            BitmapFactory.Options o2 = new BitmapFactory.Options();
-            o2.inSampleSize = scale;
-            inputStream = new FileInputStream(file);
-
-            Bitmap selectedBitmap = BitmapFactory.decodeStream(inputStream, null, o2);
-            inputStream.close();
-
-            // here i override the original image file
-            file.createNewFile();
-            FileOutputStream outputStream = new FileOutputStream(file);
-
-            selectedBitmap.compress(Bitmap.CompressFormat.JPEG, 100 , outputStream);
-
-            return file;
-        } catch (Exception e) {
-            return null;
-        }
+        });
     }
+
+
+
 
 }

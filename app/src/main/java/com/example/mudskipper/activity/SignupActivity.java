@@ -64,6 +64,8 @@ public class SignupActivity extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         Intent intent = getIntent();
+
+        //Check intent if the activity is started by the usual process or a google signup
         if (intent.hasExtra("google_userID")){
             Log.e(TAG," regGoogle");
             initializeUIGoogleLogin();
@@ -87,13 +89,7 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
-    //    @Override
-//    public void onStart() {
-//        super.onStart();
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        updateUI(currentUser);
-//    }
+    //Links XML compoents to be referenced below
     private void initializeUI() {
         nswCities = Arrays.asList(getResources().getStringArray(R.array.nsw_cities));
         ausStates = Arrays.asList(getResources().getStringArray(R.array.aus_states));
@@ -107,6 +103,8 @@ public class SignupActivity extends AppCompatActivity {
         spinnerCity = findViewById(R.id.spinnerCities);
         spinnerCity.setEnabled(false);
 
+
+        //sets state and city spinner so only 1 option can be selected
         spinnerState.setHintText("State");
         spinnerState.setLimit(1, new MultiSpinnerSearch.LimitExceedListener() {
             @Override
@@ -138,6 +136,9 @@ public class SignupActivity extends AppCompatActivity {
                     if (items.get(i).isSelected()) {
                         Log.i(TAG, i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
                         switch (items.get(i).getName()) {
+
+                            //Sets the states as from the array into the booleanPair, as a default all is false
+                            //So none is selected
                             case "NSW":
                                 stateS = items.get(i).getName();
                                 for (int nsw = 0; nsw < nswCities.size(); nsw++) {
@@ -191,6 +192,7 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
+    //Registers the new User into firebase
     private void regNewUser() {
         nameS = name.getText().toString();
         emailS = email.getText().toString();
@@ -215,7 +217,11 @@ public class SignupActivity extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             String userId = user.getUid();
+
+                            //Sets the realtime database path to the user's ID , to store the user data for the messaging function
                             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(userId);
+
+                            //Stores the user input into a hashMap to be uploaded into the database
                             Map<String, Object> newUser = new HashMap<>();
                             Map<String, Object> newUserRT = new HashMap<>();
                             newUser.put("name", nameS);
@@ -229,6 +235,7 @@ public class SignupActivity extends AppCompatActivity {
                             newUser.put("skills", null);
                             newUserRT.put("search", nameS.toLowerCase());
 
+                            //Uploads the new user data into firestore database
                             firestore.collection("users")
                                     .document(emailS)
                                     .set(newUser)
@@ -236,6 +243,8 @@ public class SignupActivity extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(Void aVoid) {
                                             Log.d(TAG, "DocumentSnapshot added!");
+
+                                            //If the firestore database is updated successfully, update the realtime database with the user data
                                             databaseReference.setValue(newUserRT).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
@@ -262,6 +271,7 @@ public class SignupActivity extends AppCompatActivity {
                 });
     }
 
+    //Initializes the Ui if the activity was started by a google sign in
     private void initializeUIGoogleLogin() {
         nswCities = Arrays.asList(getResources().getStringArray(R.array.nsw_cities));
         ausStates = Arrays.asList(getResources().getStringArray(R.array.aus_states));
@@ -274,8 +284,11 @@ public class SignupActivity extends AppCompatActivity {
         spinnerState = findViewById(R.id.spinnerStates);
         spinnerCity = findViewById(R.id.spinnerCities);
         email.setText(mAuth.getCurrentUser().getEmail());
+        //Disabled user edit of the email as it is automatically obtained from the google sign in
         email.setEnabled(false);
         email.setFocusable(true);
+
+        //On tap of the editText, lets the user know they cannot edit the email
         email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -283,11 +296,17 @@ public class SignupActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+
+        //Disables the city spinner unless a state is already selected, where the spinner would be enabled
         spinnerCity.setEnabled(false);
         email.setInputType(InputType.TYPE_NULL);
+
+        //Hides the password edittext views as there is no need for the user to enter a password
         pass.setVisibility(View.GONE);
         pass_C.setVisibility(View.GONE);
         spinnerState.setHintText("State");
+
+        //Sets the limit of selection to 1 state and city
         spinnerState.setLimit(1, new MultiSpinnerSearch.LimitExceedListener() {
             @Override
             public void onLimitListener(KeyPairBoolData data) {
@@ -370,72 +389,9 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
-//    private void regNewUserGoogle() {
-//        nameS = name.getText().toString();
-//
-//
-//        if (TextUtils.isEmpty(nameS)) {
-//            Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
-//            return;
-//        }
-//        mAuth.createUserWithEmailAndPassword(emailS, passS)
-//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if (task.isSuccessful()) {
-//
-//                            // Sign in success, update UI with the signed-in user's information
-//                            Log.d(TAG, "createUserWithEmail:success");
-//                            FirebaseUser user = mAuth.getCurrentUser();
-//                            String userId = user.getUid();
-//                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(userId);
-//                            Map<String, Object> newUser = new HashMap<>();
-//                            Map<String, Object> newUserRT = new HashMap<>();
-//                            newUser.put("name", nameS);
-//                            newUser.put("email", emailS);
-//                            newUser.put("country", "Australia");
-//                            newUser.put("state", stateS);
-//                            newUser.put("city", cityS);
-//                            newUserRT.put("uid", userId);
-//                            newUserRT.put("username", nameS);
-//                            newUser.put("description", null);
-//                            newUser.put("skills", null);
-//                            newUserRT.put("search", nameS.toLowerCase());
-//
-//                            firestore.collection("users")
-//                                    .document(emailS)
-//                                    .set(newUser)
-//                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                        @Override
-//                                        public void onSuccess(Void aVoid) {
-//                                            Log.d(TAG, "DocumentSnapshot added!");
-//                                            databaseReference.setValue(newUserRT).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                                @Override
-//                                                public void onComplete(@NonNull Task<Void> task) {
-//
-//                                                }
-//                                            });
-//                                            startActivity(new Intent(SignupActivity.this, SelectOccupationActivity.class));
-//                                        }
-//                                    })
-//                                    .addOnFailureListener(new OnFailureListener() {
-//                                        @Override
-//                                        public void onFailure(@NonNull Exception e) {
-//                                            Log.w(TAG, "Error adding document", e);
-//                                        }
-//                                    });
-//                        } else {
-//                            // If sign in fails, display a message to the user.
-//                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-//                            Toast.makeText(SignupActivity.this, "Authentication failed.",
-//                                    Toast.LENGTH_SHORT).show();
-//                        }
-//
-//                        // ...
-//                    }
-//                });
-//    }
 
+    //Method that uploads the google user into the databases
+    //Different data is uploaded as they do not need password input
     public void regGoogleUser(){
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(mAuth.getUid());
         String email = mAuth.getCurrentUser().getEmail();

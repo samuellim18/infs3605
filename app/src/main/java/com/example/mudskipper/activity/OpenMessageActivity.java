@@ -38,6 +38,7 @@ public class OpenMessageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //uses view binding to link the XML
         binding = ActivityOpenMessageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -63,6 +64,7 @@ public class OpenMessageActivity extends AppCompatActivity {
         });
     }
 
+    //Initializes the layour with a tab view and view pager which allows the user to swipe between the message and users tabs
     private void init() {
         // removing toolbar elevation
         //getSupportActionBar().setElevation(0);

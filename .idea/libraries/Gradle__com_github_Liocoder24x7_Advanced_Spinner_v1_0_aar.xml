@@ -3,6 +3,9 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/871074859ee71c56a77e6eebaaa4d598/jetified-Advanced-Spinner-v1.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/871074859ee71c56a77e6eebaaa4d598/jetified-Advanced-Spinner-v1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4b1282467b724b8246b756b04b1823e4/jetified-Advanced-Spinner-v1.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4b1282467b724b8246b756b04b1823e4/jetified-Advanced-Spinner-v1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4b1282467b724b8246b756b04b1823e4/jetified-Advanced-Spinner-v1.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

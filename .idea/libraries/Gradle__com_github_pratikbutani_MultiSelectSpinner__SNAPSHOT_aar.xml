@@ -3,6 +3,9 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/50048e38987f22b484160879396ca0d2/jetified-MultiSelectSpinner--SNAPSHOT/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/50048e38987f22b484160879396ca0d2/jetified-MultiSelectSpinner--SNAPSHOT/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0dc077345a25cfe64516e91a23652758/jetified-MultiSelectSpinner--SNAPSHOT/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0dc077345a25cfe64516e91a23652758/jetified-MultiSelectSpinner--SNAPSHOT/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0dc077345a25cfe64516e91a23652758/jetified-MultiSelectSpinner--SNAPSHOT/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

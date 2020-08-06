@@ -80,6 +80,7 @@ public class MessageActivity extends AppCompatActivity {
 
         apiService  = Client.getClient("https://fcm.googleapis.com/").create(APIService.class);
 
+        //Links XML items to the variables
         profilePic =  findViewById(R.id.profile_image);
         username = findViewById(R.id.username);
         btn_send = findViewById(R.id.btn_send_msg);
@@ -88,6 +89,7 @@ public class MessageActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
+        //Gets the user ID from intent - the user that current user wants to message
         intent = getIntent();
         userID  = intent.getStringExtra("userId");
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -110,6 +112,7 @@ public class MessageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 notify = true;
+                //Checks if message is null before sending
                 String msg = msg_text.getText().toString();
                 if(!msg.equals("")){
                     sendMessage(firebaseUser.getUid(),userID,msg);
@@ -122,6 +125,7 @@ public class MessageActivity extends AppCompatActivity {
         });
 
 
+        //checks the database for any updates the the message list
         databaseReference = FirebaseDatabase.getInstance().getReference("users").child(userID);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -144,6 +148,8 @@ public class MessageActivity extends AppCompatActivity {
 
 
 
+    //Method to get user message that will be stored in the database
+    //Timestamp can potnetially be used to show the timestamp of message sent too
     private void sendMessage(String sender, String receiver, String message){
         DatabaseReference msgRef = FirebaseDatabase.getInstance().getReference();
         HashMap<String,Object>hashMap = new HashMap<>();
@@ -156,7 +162,7 @@ public class MessageActivity extends AppCompatActivity {
         hashMap.put("timestamp", format);
         msgRef.child("chats").push().setValue(hashMap);
 
-        //add user to chat fragment
+        //Adds the user pair to the chat list to determine if the users had messaged before
         DatabaseReference chatReference = FirebaseDatabase.getInstance().getReference("chatlist")
                 .child(firebaseUser.getUid())
                 .child(userID);
@@ -221,6 +227,7 @@ public class MessageActivity extends AppCompatActivity {
 
     }
 
+    //Methodt that does not work
     private void sendNotification(String receiver, String username, String message){
         DatabaseReference tokens = FirebaseDatabase.getInstance().getReference("tokens");
         Query query = tokens.orderByKey().equalTo(receiver);
