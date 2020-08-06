@@ -18,8 +18,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.mudskipper.R;
+import com.example.mudskipper.activity.CategoryProjectsActivity;
 import com.example.mudskipper.activity.ProjectDetailActivity;
-import com.example.mudskipper.activity.TrendingActivity;
 import com.example.mudskipper.model.MovieModel;
 import com.example.mudskipper.model.ProjectModel;
 import com.example.mudskipper.model.CategoryModel;
@@ -28,9 +28,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -73,12 +71,12 @@ public class DiscoverFragment extends Fragment implements SearchView.OnQueryText
 //        category_arraylist.add("Music Videos");
 //        category_arraylist.add("Short Films");
 
-        for (int i = 0; i < category_arraylist.size(); i++) {
-//            MovieModel movieNames = new MovieModel(category_arraylist.get(i));
-            MovieModel movieNames = new MovieModel(category_arraylist.get(i).category_name);
-            //bind all strings into an array
-            arrayList.add(movieNames);
-        }
+//        for (int i = 0; i < category_arraylist.size(); i++) {
+////            MovieModel movieNames = new MovieModel(category_arraylist.get(i));
+//            MovieModel movieNames = new MovieModel(category_arraylist.get(i).category_name);
+//            //bind all strings into an array
+//            arrayList.add(movieNames);
+//        }
 
         //pass results to ListViewAdapter class
         adapter = new ListViewAdapter(context_f, arrayList);
@@ -145,6 +143,8 @@ public class DiscoverFragment extends Fragment implements SearchView.OnQueryText
 
     @Override
     public boolean onQueryTextChange(String newText) {
+
+
         list.setVisibility(View.VISIBLE);
         String text = newText;
         adapter.filter(text);
@@ -257,11 +257,22 @@ public class DiscoverFragment extends Fragment implements SearchView.OnQueryText
 //            Glide.with(this).load(category_arraylist.get(i).category_image).into(category_image);
             TextView category_name = category_view.findViewById(R.id.category_name);
             category_name.setText(category_arraylist.get(i).category_name);
+
+
+            int finalI = i;
+            category_view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getActivity(), CategoryProjectsActivity.class).putExtra("category_id", category_arraylist.get(finalI).object_id));
+                }
+            });
             category_lay.addView(category_view);
 
-            MovieModel movieNames = new MovieModel(category_arraylist.get(i).category_name);
+
+            MovieModel movieNames = new MovieModel("Category : " + category_arraylist.get(i).category_name);
             //bind all strings into an array
             arrayList.add(movieNames);
+            adapter.notifyDataSetChanged();
         }
 
         //pass results to ListViewAdapter class
@@ -270,33 +281,36 @@ public class DiscoverFragment extends Fragment implements SearchView.OnQueryText
         list.setAdapter(adapter);
     }
 
-    public void getProjects(){
+    public void getProjects() {
         CollectionReference projects = db.collection("projects");
         projects.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
                     QuerySnapshot document = task.getResult();
-                    for (DocumentSnapshot projects : document.getDocuments()){
-                        project.add(new ProjectModel(projects.getString("project_name"), projects.getString("project_description"), projects.getString("video_link"), projects.getString("likes")));
+                    for (DocumentSnapshot projects : document.getDocuments()) {
+                        project.add(new ProjectModel(projects.getString("project_name"), projects.getString("project_description"), projects.getString("video_link"), projects.getString("likes"), projects.getDouble("view_count")));
                     }
 //                    if (project.size() == 1) {
 //                        num_of_project.setText(project.size() + " Project");
 //                    } else {
 //                        num_of_project.setText(project.size() + " Projects");
 //                    }
-                showProjects();
+                    showProjects();
+                }
             }
-        }
-    });
-}
+        });
+    }
 
-    private void showProjects(){
+    private void showProjects() {
         trending_layout.removeAllViews();
-        for ( int i=0; i<project.size(); i++){
+        arrayList.clear();
+        for (int i = 0; i < project.size(); i++) {
             View category_view = LayoutInflater.from(context_f).inflate(R.layout.trending_video_row, null);
             TextView category_name = category_view.findViewById(R.id.category_name);
             TextView total_likes = category_view.findViewById(R.id.total_likes);
+            TextView total_views = category_view.findViewById(R.id.total_views);
+            total_views.setText(project.get(i).getView_count() + "");
             total_likes.setText(project.get(i).getLikes());
             ImageView trending_image = category_view.findViewById(R.id.trending_image);
             trending_image.setImageResource(R.drawable.dummy_trending);
@@ -305,16 +319,19 @@ public class DiscoverFragment extends Fragment implements SearchView.OnQueryText
             trending_layout.addView(category_view);
 
             int finalI = i;
-            category_view.setOnClickListener(new View.OnClickListener()
-            {
+            category_view.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), ProjectDetailActivity.class);
                     intent.putExtra(EXTRA_MESSAGE, project.get(finalI).getProject_name());
                     startActivity(intent);
                 }
             });
+
+            MovieModel movieNames = new MovieModel("Project : " + project.get(i).getProject_name());
+            //bind all strings into an array
+            arrayList.add(movieNames);
+            adapter.notifyDataSetChanged();
         }
     }
 }

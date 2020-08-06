@@ -7,10 +7,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.mudskipper.AddCollaboratorDialog;
 import com.example.mudskipper.R;
+import com.example.mudskipper.model.CategoryModel;
 import com.example.mudskipper.model.ProjectModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -40,7 +43,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CreateProjectFragment extends Fragment implements AddCollaboratorDialog.AddCollaboratorDialogListener{
+public class CreateProjectFragment extends Fragment implements AddCollaboratorDialog.AddCollaboratorDialogListener {
     private EditText project_name, project_description, video_link;
     private String project_nameS, project_descriptionS, video_linkS, emailS;
     private Button add_project_btn, cancel_btn, add_collaborator_btn;
@@ -53,10 +56,15 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
+    Spinner category_spinner;
+    private ArrayList<CategoryModel> category_arraylist = new ArrayList<>();
+    private ArrayList<String> category_names = new ArrayList<>();
+    int selected_cat_position = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create_project, container, false);
+        category_spinner = view.findViewById(R.id.category_spinner);
 
         project_name = view.findViewById(R.id.et_project_name);
         project_description = view.findViewById(R.id.et_project_description);
@@ -87,7 +95,7 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
         });
 
         collaborator_list = view.findViewById(R.id.lv_collaborator);
-        collaborator_adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_2, android.R.id.text1, collaborator_name){
+        collaborator_adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_2, android.R.id.text1, collaborator_name) {
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
                 TextView text1 = (TextView) view.findViewById(android.R.id.text1);
@@ -100,10 +108,11 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
         };
 
         collaborator_list.setAdapter(collaborator_adapter);
+        getCategories();
         return view;
     }
 
-    private void addNewProject(){
+    private void addNewProject() {
         project_nameS = project_name.getText().toString();
         project_descriptionS = project_description.getText().toString();
         video_linkS = video_link.getText().toString();
@@ -125,6 +134,11 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
         newProject.put("video_link", video_linkS);
         newProject.put("email", emailS);
         newProject.put("likes", "0");
+        if (category_arraylist.size() > 0)
+            newProject.put("category_id", category_arraylist.get(selected_cat_position).object_id);
+        else
+            newProject.put("category_id", "");
+
 
         newProject.put("collaborators", collaborator_name);
         newProject.put("collaborator_role", collaborator_role);
@@ -150,7 +164,7 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
                 });
     }
 
-    private void addCollaborator(){
+    private void addCollaborator() {
         AddCollaboratorDialog addCollaboratorDialog = new AddCollaboratorDialog();
         addCollaboratorDialog.setTargetFragment(CreateProjectFragment.this, 0);
         addCollaboratorDialog.show(getActivity().getSupportFragmentManager(), "Add Collab");
@@ -161,5 +175,46 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
         collaborator_name.add(name);
         collaborator_role.add(role);
         collaborator_adapter.notifyDataSetChanged();
+    }
+
+    public void getCategories() {
+        CollectionReference categories = db.collection("categories");
+//      Query query = categories.whereEqualTo("email", "z@gmail.com");
+        categories.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    QuerySnapshot document = task.getResult();
+                    for (DocumentSnapshot categories : document.getDocuments()) {
+                        CategoryModel categoryModel = new CategoryModel();
+                        categoryModel.category_name = categories.getString("category_name");
+                        categoryModel.category_image = categories.getString("category_image");
+                        categoryModel.object_id = categories.getString("object_id");
+                        category_arraylist.add(categoryModel);
+                        category_names.add(categories.getString("category_name"));
+                    }
+                    //addCategoryView();
+                    if (category_names.size() > 0) {
+                        ArrayAdapter adapter = new ArrayAdapter(getActivity(), R.layout.support_simple_spinner_dropdown_item, category_names);
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        category_spinner.setAdapter(adapter);
+                        category_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                                // your code here
+                                selected_cat_position = position;
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parentView) {
+                                // your code here
+                            }
+
+                        });
+                    }
+
+                }
+            }
+        });
     }
 }

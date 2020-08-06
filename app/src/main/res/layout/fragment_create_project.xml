@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -13,27 +12,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/create_new_project"
+                android:layout_margin="@dimen/_10sdp"
                 android:fontFamily="@font/lato"
                 android:gravity="center"
+                android:text="@string/create_new_project"
+                android:textColor="@android:color/black"
                 android:textSize="@dimen/_14sdp"
-                android:layout_margin="@dimen/_10sdp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black" />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:text="Project Name"
+                android:text="@string/project_name"
                 android:textColor="#000000"
                 android:textStyle="bold" />
 
@@ -58,7 +57,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:text="Project Description"
+                android:text="@string/project_description"
                 android:textColor="#000000"
                 android:textStyle="bold" />
 
@@ -77,13 +76,33 @@
                 android:textColor="#000000"
                 android:textSize="15sp" />
 
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:text="Video Link"
+                android:text="@string/category"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/category_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="@string/video_link"
                 android:textColor="#000000"
                 android:textStyle="bold" />
 
@@ -108,7 +127,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:text="Collaborator(s)"
+                android:text="@string/collaborator"
                 android:textColor="#000000"
                 android:textStyle="bold" />
 
@@ -121,21 +140,20 @@
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/orange_btn"
                 android:fontFamily="@font/lato"
-                android:text="Add Collaborator"
+                android:text="@string/add_collaborator"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/_10sdp"
                 android:textStyle="bold" />
 
-                <ListView
-                    android:id="@+id/lv_collaborator"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_150sdp"
-                    android:nestedScrollingEnabled="true"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    />
+            <ListView
+                android:id="@+id/lv_collaborator"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:nestedScrollingEnabled="true" />
 
         </LinearLayout>
     </ScrollView>
@@ -143,25 +161,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_weight="1"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/cancel_btn"
             android:layout_width="170dp"
             android:layout_height="@dimen/_28sdp"
             android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
             android:layout_marginBottom="@dimen/_15sdp"
-            android:layout_marginRight="@dimen/_20sdp"
             android:background="@drawable/gray_btn"
             android:fontFamily="@font/lato"
-            android:text="Cancel"
+            android:gravity="center"
+            android:text="@string/cancel"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
             android:textSize="@dimen/_10sdp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/add_project_btn"
@@ -171,12 +189,12 @@
             android:layout_marginBottom="@dimen/_15sdp"
             android:background="@drawable/gray_btn"
             android:fontFamily="@font/lato"
-            android:text="Add Project"
+            android:gravity="center"
+            android:text="@string/add_project"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
             android:textSize="@dimen/_10sdp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 </LinearLayout>
