@@ -248,20 +248,25 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void getUsersList() {
+        Log.e(TAG, "launch getUsersList");
+        progressDialog.show();
         // Get a reference to the pedestal collection
         final CollectionReference firestoreUsers = firestore.collection("users");
         //
-        //        // get all the names of the pedestals in firestore
+        //        // get all the names of the users in firestore
         firestoreUsers.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                Log.e(TAG, "launch getUsersList - inCOmp");
                 for (QueryDocumentSnapshot document : task.getResult()) {
                     //  names.add(document.getString("name"));
+                    Log.e(TAG, "launch getUsersList - loop");
                     userList.add(document.get("email").toString());
                 }
                 for (String a : userList){
                     System.out.println(a);
                 }
+                progressDialog.dismiss();
                 Toast.makeText(LoginActivity.this, "success!", Toast.LENGTH_LONG).show();
             }//end of onSuccess
         }).addOnFailureListener(new OnFailureListener() {

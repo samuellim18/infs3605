@@ -122,8 +122,6 @@ public class ProfileFragment extends Fragment
         int numberOfColumns = 2;
         myRecyclerView.setLayoutManager(new GridLayoutManager(mContext_f, numberOfColumns));
         myRecyclerView.setAdapter(adapter);
-        InitImgLoader();
-        setProfilePic();
         profile_photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -254,15 +252,6 @@ public class ProfileFragment extends Fragment
      }
  */
 
-    private void InitImgLoader(){
-        UniversalImageLoader universalImageLoader = new UniversalImageLoader(getActivity());
-        ImageLoader.getInstance().init(universalImageLoader.getConfig());
-    }
-    private void setProfilePic(){
-        Log.d("prof","setr");
-        String imgUrl = "www.skillvalue.com/wp-content/uploads/sites/7/2019/06/mobile-developer-android-hybrid-freelance-project.jpg";
-        UniversalImageLoader.setImage(imgUrl, profile_photo,"https://",null);
-    }
 
     @Override
     public void onAttach(@NonNull Context context)
