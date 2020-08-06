@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.GetStream:stream-chat-android:4.0.13@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5c9be1285673e8923402db689b9f79cd/jetified-stream-chat-android-4.0.13/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5c9be1285673e8923402db689b9f79cd/jetified-stream-chat-android-4.0.13/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5c9be1285673e8923402db689b9f79cd/jetified-stream-chat-android-4.0.13/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.GetStream/stream-chat-android/4.0.13/15bad0c52561ea68728d5c2ad37be7850ac74642/stream-chat-android-4.0.13-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
