@@ -23,15 +23,20 @@
     <string name="create_new_project">Create a New Project</string>
     <string name="add_project">Add Project</string>
     <string name="cancel">Cancel</string>
-    <string name="project_name">Project name</string>
+    <string name="project_name">Project Name</string>
+    <string name="project_description">Project Description</string>
     <string name="description">Description</string>
-    <string name="collaborator">Collaborators</string>
+    <string name="collaborator">Collaborator(s)</string>
+    <string name="add_collaborator">Add Collaborator</string>
     <string name="video_link">Video Link</string>
+    <string name="category">Category</string>
     <string name="delete_project">Delete Project</string>
 
-    <string name="category">Categories</string>
+    <string name="categories">Categories</string>
     <string name="trending">Trending</string>
     <string name="search_movie">Movie: </string>
+    <string name="category_tag">Tag</string>
+    <string name="no_tag">No Tag Found</string>
 
     <string name="edit_profile">Edit Profile</string>
     <string name="profile_name">Profile Name</string>

@@ -9,16 +9,31 @@ public class ProjectModel {
     private String video_link;
     private String video_id;
     private String likes;
+    public String email;
+    public String tag;
 
+    public int getView_count() {
+        return view_count;
+    }
+
+    public void setView_count(int view_count) {
+        this.view_count = view_count;
+    }
+
+    private int view_count=0;
     public void setLikes(String likes){
         this.likes = likes;
     }
 
-    public ProjectModel(String project_name, String project_description, String video_link, String likes) {
+    public ProjectModel(String project_name, String project_description, String video_link, String likes, Double view_count) {
         this.project_name = project_name;
         this.project_description = project_description;
         this.video_link = video_link;
         this.likes = likes;
+        if(view_count==null)
+            this.view_count=0;
+        else
+            this.view_count = view_count.intValue();
     }
 
     public String getProject_name() {
