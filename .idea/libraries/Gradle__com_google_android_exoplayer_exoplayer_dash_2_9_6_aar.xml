@@ -1,17 +1,17 @@
 <component name="libraryTable">
-  <library name="Gradle: com.google.android.exoplayer:exoplayer-dash:2.9.3@aar">
+  <library name="Gradle: com.google.android.exoplayer:exoplayer-dash:2.9.6@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ef77150bf69ba0978f3f4d1642441954/jetified-exoplayer-dash-2.9.3/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c969f62c9ffa7f42627dfb3cc9439f9c/jetified-exoplayer-dash-2.9.6/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ef77150bf69ba0978f3f4d1642441954/jetified-exoplayer-dash-2.9.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ef77150bf69ba0978f3f4d1642441954/jetified-exoplayer-dash-2.9.3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c969f62c9ffa7f42627dfb3cc9439f9c/jetified-exoplayer-dash-2.9.6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c969f62c9ffa7f42627dfb3cc9439f9c/jetified-exoplayer-dash-2.9.6/res" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.exoplayer/exoplayer-dash/2.9.3/ddec7eaffec7f1fa969239a4d074cc52901a1bc5/exoplayer-dash-2.9.3-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.exoplayer/exoplayer-dash/2.9.6/33431569355b0486050d0a1ed170ac0736f0e5ad/exoplayer-dash-2.9.6-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.exoplayer/exoplayer-dash/2.9.3/c035371a11b3da8a6babb79f477c7031d15fdcfd/exoplayer-dash-2.9.3-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.exoplayer/exoplayer-dash/2.9.6/b3bfad74517a7bcc78b8b1304ebfd7dddac9857a/exoplayer-dash-2.9.6-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
