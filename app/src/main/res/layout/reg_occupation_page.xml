@@ -11,25 +11,26 @@
             android:id="@+id/tv_occ_and_int"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_margin="@dimen/_10sdp"
             android:fontFamily="@font/lato"
+            android:gravity="center"
             android:text="Select Occupation and Skills"
-            android:textColor="#000000"
-            android:textSize="30sp"/>
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/tv_actor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="25dp"
             android:layout_marginLeft="25dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/lato"
             android:text="Actor"
             android:textColor="#000000"
-            android:textSize="30sp" />
+            android:textSize="@dimen/_14sdp" />
 
         <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
             android:id="@+id/actorSkillSpinnerMulti"
@@ -54,10 +55,9 @@
             android:layout_marginLeft="25dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/lato"
-
             android:text="Director/Filmmaker"
             android:textColor="#000000"
-            android:textSize="30sp" />
+            android:textSize="@dimen/_14sdp" />
 
         <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
             android:id="@+id/directorSpinnerMulti"
@@ -74,6 +74,7 @@
             android:layout_marginBottom="10dp"
             android:padding="15dp"
             android:textSize="15sp"/>
+
         <TextView
             android:id="@+id/tv_photo"
             android:layout_width="wrap_content"
@@ -84,7 +85,7 @@
             android:fontFamily="@font/lato"
             android:text="Photographer"
             android:textColor="#000000"
-            android:textSize="30sp" />
+            android:textSize="@dimen/_14sdp" />
 
         <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
             android:id="@+id/photographerSpinnerMulti"
@@ -111,7 +112,7 @@
             android:fontFamily="@font/lato"
             android:text="Artist/Designer"
             android:textColor="#000000"
-            android:textSize="30sp" />
+            android:textSize="@dimen/_14sdp" />
 
         <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
             android:id="@+id/designerSpinnerMulti"
@@ -137,7 +138,7 @@
             android:fontFamily="@font/lato"
             android:text="Freelance"
             android:textColor="#000000"
-            android:textSize="30sp" />
+            android:textSize="@dimen/_14sdp" />
 
         <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
             android:id="@+id/freelanceSpinnerMulti"

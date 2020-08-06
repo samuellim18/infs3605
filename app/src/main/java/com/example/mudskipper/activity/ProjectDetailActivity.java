@@ -48,6 +48,7 @@ public class ProjectDetailActivity extends YouTubeBaseActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    public static final String EXTRA_MESSAGE = "";
     ProjectModel project;
     ArrayList<CollaboratorModel> collaborator = new ArrayList<>();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -152,8 +153,9 @@ public class ProjectDetailActivity extends YouTubeBaseActivity {
 
                         List<String> collab = (List<String>) document.get("collaborators");
                         List<String> collab_role = (List<String>) document.get("collaborator_role");
+                        List<String> collab_email = (List<String>) document.get("collaborator_email");
                         for (int i = 0; i < collab.size(); i++) {
-                            collaborator.add(new CollaboratorModel(collab.get(i), collab_role.get(i)));
+                            collaborator.add(new CollaboratorModel(collab.get(i), collab_role.get(i), collab_email.get(i)));
                         }
                         if(project.email!=null){
                             DocumentReference userRef = db.collection("users").document(project.email);
@@ -216,10 +218,6 @@ public class ProjectDetailActivity extends YouTubeBaseActivity {
             }
         });
 
-
-
-
-
     }
 
     public void playVideo() {
@@ -245,7 +243,9 @@ public class ProjectDetailActivity extends YouTubeBaseActivity {
         CollaboratorAdapter.RecyclerViewClickListener listener = new CollaboratorAdapter.RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
-
+                Intent intent = new Intent(getApplicationContext(), CollaboratorProfileActivity.class);
+                intent.putExtra(EXTRA_MESSAGE, collaborator.get(position).getCollaborator_email());
+                startActivity(intent);
             }
         };
 

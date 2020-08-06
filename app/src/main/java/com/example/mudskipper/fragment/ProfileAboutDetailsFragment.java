@@ -83,8 +83,8 @@ public class ProfileAboutDetailsFragment extends Fragment {
                         description = document.getString("description");
                         profileName.setText(name);
                         profileEmail.setText(email);
-                        profilePhone.setText("Phone no: " + mobile_phone);
-                        profileSkills.setText("Skills: " + skills);
+                        //profilePhone.setText("Phone no: " + mobile_phone);
+                        profileSkills.setText(skills);
                         profileDescription.setText("Description: " + description);
 
                         System.out.println(document);

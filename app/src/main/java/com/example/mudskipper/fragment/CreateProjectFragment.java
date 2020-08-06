@@ -49,6 +49,7 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
     private Button add_project_btn, cancel_btn, add_collaborator_btn;
     private ArrayList<String> collaborator_name = new ArrayList<>();
     private ArrayList<String> collaborator_role = new ArrayList<>();
+    private ArrayList<String> collaborator_email = new ArrayList<>();
     private ListView collaborator_list;
     ArrayAdapter collaborator_adapter;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -142,6 +143,7 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
 
         newProject.put("collaborators", collaborator_name);
         newProject.put("collaborator_role", collaborator_role);
+        newProject.put("collaborator_email", collaborator_email);
 
         db.collection("projects")
                 .document(project_nameS)
@@ -171,9 +173,10 @@ public class CreateProjectFragment extends Fragment implements AddCollaboratorDi
     }
 
     @Override
-    public void applyTexts(String name, String role) {
+    public void applyTexts(String name, String role, String email) {
         collaborator_name.add(name);
         collaborator_role.add(role);
+        collaborator_email.add(email);
         collaborator_adapter.notifyDataSetChanged();
     }
 

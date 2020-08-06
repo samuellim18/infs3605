@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".activity.OpenMessageActivity"></activity>
+        <activity android:name=".activity.CollaboratorProfileActivity"></activity>
+        <activity android:name=".activity.OpenMessageActivity" />
         <activity android:name=".activity.ProjectDetailActivity" />
         <activity android:name=".activity.LoginActivity">
             <intent-filter>
@@ -30,7 +31,8 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.SelectOccupationActivity" />
         <activity android:name=".activity.SelectInterestActivity" />
-        <activity android:name=".activity.MessageActivity"/>
+        <activity android:name=".activity.MessageActivity" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -64,9 +64,9 @@ public class AddCollaboratorDialog extends AppCompatDialogFragment implements Ad
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
                         String collab_name = et_name.getText().toString();
-                        //String collab_role = et_role.getText().toString();
+                        String collab_email = collab_name.substring(collab_name.indexOf("(")+1,collab_name.indexOf(")"));
                         AddCollaboratorDialogListener listener = (AddCollaboratorDialogListener) getTargetFragment();
-                        listener.applyTexts(collab_name, role);
+                        listener.applyTexts(collab_name, role, collab_email);
                     }
                 });
 
@@ -101,7 +101,7 @@ public class AddCollaboratorDialog extends AppCompatDialogFragment implements Ad
     }
 
     public interface AddCollaboratorDialogListener{
-        void applyTexts(String name, String role);
+        void applyTexts(String name, String role, String email);
     }
 
     private void getCollaborators(){

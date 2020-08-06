@@ -12,32 +12,29 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/tv_logo"
+            android:id="@+id/tv_occ_and_int"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="18dp"
+            android:layout_margin="@dimen/_10sdp"
             android:fontFamily="@font/lato"
-            android:gravity="center_horizontal"
-            android:text="Welcome to Mudskipper"
-            android:textAlignment="center"
-            android:textColor="#2F87C7"
-            android:textSize="30sp" />
+            android:gravity="center"
+            android:text="Select Work Commitments and Interests"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="25dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/lato"
             android:text="Work Commitments"
             android:textColor="#000000"
-
-            android:textSize="30sp" />
+            android:textSize="@dimen/_14sdp" />
 
         <Button
             android:id="@+id/full_time"
@@ -46,7 +43,7 @@
             android:layout_centerInParent="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/orange_btn"
             android:fontFamily="@font/lato"
             android:text="Full Time"
@@ -71,11 +68,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/lato"
             android:text="Select Interests"
             android:textColor="#000000"
-            android:textSize="30sp" />
+            android:textSize="@dimen/_14sdp" />
 
         <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
             android:id="@+id/interestSpinnerMulti"
@@ -92,11 +89,6 @@
             android:padding="15dp"
             android:textSize="15sp"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" >
-
             <Button
                 android:id="@+id/btn_final_reg"
                 android:layout_width="match_parent"
@@ -105,12 +97,10 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="30dp"
-                android:textSize="25dp"
                 android:background="@drawable/orange_btn"
                 android:fontFamily="@font/lato"
                 android:text="Next"
                 android:textColor="@android:color/white" />
 
-        </RelativeLayout>
     </LinearLayout>
 </ScrollView>

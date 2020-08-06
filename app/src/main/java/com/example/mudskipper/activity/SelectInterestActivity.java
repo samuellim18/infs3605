@@ -45,7 +45,7 @@ public class SelectInterestActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reg_interest);
-        full_time = (Button) findViewById(R.id.full_time);
+        full_time = findViewById(R.id.full_time);
         part_time = findViewById(R.id.part_time);
         interestSpinner= findViewById(R.id.interestSpinnerMulti);
         final_reg = findViewById(R.id.btn_final_reg);
