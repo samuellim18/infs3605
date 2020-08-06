@@ -17,7 +17,7 @@ import com.example.mudskipper.R;
 import com.example.mudskipper.activity.EditProfileActivity;
 import com.example.mudskipper.adapter.FragmentViewPagerActivity;
 import com.example.mudskipper.databinding.ActivityFragmentViewPagerBinding;
-import com.example.mudskipper.databinding.FragmentFragmentViewPagerBinding;
+//import com.example.mudskipper.databinding.FragmentFragmentViewPagerBinding;
 import com.example.mudskipper.databinding.FragmentTestSliderBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
