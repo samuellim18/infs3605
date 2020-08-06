@@ -228,7 +228,7 @@ public class DiscoverFragment extends Fragment implements SearchView.OnQueryText
     }
 
     public void getCategories() {
-        CollectionReference categories = db.collection("Categories");
+        CollectionReference categories = db.collection("categories");
 //      Query query = categories.whereEqualTo("email", "z@gmail.com");
         categories.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
