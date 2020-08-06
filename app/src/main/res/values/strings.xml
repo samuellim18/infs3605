@@ -39,10 +39,12 @@
     <string name="no_tag">No Tag Found</string>
 
     <string name="edit_profile">Edit Profile</string>
+    <string name="update_profile">Update Profile</string>
     <string name="profile_name">Profile Name</string>
     <string name="about_me">About Me:</string>
     <string name="contact_detail">Contact Details:</string>
     <string name="my_skills">My Skills:</string>
+    <string name="skills_list">Skills List</string>
     <string name="follow">Follow</string>
     <string name="message">Message</string>
     <string name="my_projects">Projects:</string>
