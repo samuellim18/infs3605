@@ -7,9 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.example.mudskipper.R;
-import com.example.mudskipper.fragment.AbtAndProjProfileFragments;
 import com.example.mudskipper.fragment.CollaboratorProfileFragment;
-import com.example.mudskipper.fragment.DiscoverFragment;
 
 import butterknife.ButterKnife;
 

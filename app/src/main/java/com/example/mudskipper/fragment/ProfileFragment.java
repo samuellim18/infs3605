@@ -40,7 +40,7 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-
+//Old profile fragment
 public class ProfileFragment extends Fragment
 {
 

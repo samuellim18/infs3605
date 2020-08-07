@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.mudskipper.R;
 import com.example.mudskipper.fragment.DiscoverFragment;
 import com.example.mudskipper.fragment.ProjectFragment;
-import com.example.mudskipper.fragment.AbtAndProjProfileFragments;
+import com.example.mudskipper.fragment.ProfileTabbedFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import butterknife.BindView;
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity
                     case R.id.nav_profile:
                         /*toolbar_title.setVisibility(View.VISIBLE);
                         toolbar_title.setText("Messages");*/
-                        fragment = new AbtAndProjProfileFragments();
+                        fragment = new ProfileTabbedFragment();
                         loadFragment(fragment,3);
                         return true;
                 }

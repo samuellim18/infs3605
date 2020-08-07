@@ -113,6 +113,10 @@ public class LoginActivity extends AppCompatActivity {
 
     //Intent to start google User sign in
     //Process referenced from : https://stackoverflow.com/questions/38868873/google-sign-in-with-firebase-android
+    /*
+    This allowed me to implement google sign in, which aligns with Mudskipper's wants to integrate existing technologies into the app
+    This could be expanded in the future to allow facebook or other social media supported by Firebase
+     */
     public void signIntoGoogle() {
         Intent signInIntent = googleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);

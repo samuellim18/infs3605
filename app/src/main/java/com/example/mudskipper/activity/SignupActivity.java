@@ -105,6 +105,7 @@ public class SignupActivity extends AppCompatActivity {
 
 
         //sets state and city spinner so only 1 option can be selected
+        //This spinner allows the user to search for the list of cities and states in VIC
         spinnerState.setHintText("State");
         spinnerState.setLimit(1, new MultiSpinnerSearch.LimitExceedListener() {
             @Override
@@ -139,6 +140,7 @@ public class SignupActivity extends AppCompatActivity {
 
                             //Sets the states as from the array into the booleanPair, as a default all is false
                             //So none is selected
+                            //Checks if the state spinner's selected item, and sets the cities list based on that
                             case "NSW":
                                 stateS = items.get(i).getName();
                                 for (int nsw = 0; nsw < nswCities.size(); nsw++) {
@@ -207,6 +209,8 @@ public class SignupActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter password!", Toast.LENGTH_LONG).show();
             return;
         }
+
+        //Uses Firebase authentication to check if the user is register and if not, register  the user in the backend
         mAuth.createUserWithEmailAndPassword(emailS, passS)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override

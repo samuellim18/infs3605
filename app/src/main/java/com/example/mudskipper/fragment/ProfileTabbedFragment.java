@@ -36,10 +36,19 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
-public class AbtAndProjProfileFragments extends Fragment {
+public class ProfileTabbedFragment extends Fragment {
+
+
+    /*
+    TAB AND VIEWPAGER LAYOUT ADAPTED FROM :https://www.androidhive.info/2020/01/viewpager2-pager-transformations-intro-slider-pager-animations-pager-transformations/
+    This tutorial enabled me to implement a tabbed view for the user's about and project details on a single page
+    instead of additional buttons to click through to reach the intended pages
+    This also prevented overcrowding on a single page with all the user details and projects
+     */
+
 
     FragmentAbtProjectProfileBinding binding;
-    String TAG = "AbtAndProjProfileFragments";
+    String TAG = "ProfileTabbedFragment";
 
     // tab titles
     private String[] titles = new String[]{"About", "Projects"};
