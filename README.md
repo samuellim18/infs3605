@@ -1,4 +1,5 @@
 # INFS3605 - H13A - Group 3 Mudskipper
+Link to the repository: https://github.com/samuellim18/infs3605
 
 Bugs/Isses to look out for:
 1. This app has run successfully on API 25, 29 and 30. However, first time installation from android studio can sometimes crash
