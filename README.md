@@ -10,7 +10,7 @@ but can be seen in the project view
 
 2. Due to merging issues, signing in with google works, but there seems to be a delay between when the method is called and when the data is
 returned from firebase, which leads to calling the else statement in the following code snippet as the userList array is 0 so will the if
-statement is always skipped
+statement is always skipped.ONLY NSW AND VIC STATES HAVE WORKING CITIES LIST AS A DEMO ON THE FUNCTION TO ENABLE THE DEVELOPERS TO WORK ON OTHER FUNCTIONS.
 
 
 """
