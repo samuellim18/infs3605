@@ -43,7 +43,7 @@ added a new project
 8. The notifications folder contains fils for notification from messaging but does not work and was deprioritised
 9. Current prjects can only be liked in their detail page and will increase everytime it is tapped
 10. There is currently no limit as to how many skills and occupation can each user select on registration
-11.Search function in the messaging function crashes
+11.Search function in the messaging function crashes and the user has to click the back button on their phone to go back to the other pages from the messaging feature
 
 
 
@@ -52,3 +52,5 @@ added a new project
 
 
 Reference used for messaging function and related files: https://www.youtube.com/playlist?list=PLzLFqCABnRQftQQETzoVMuteXzNiXmnj8
+This tutorial enabled me to implement a basic messaging feature in our application to enourage interactions and collaboration between user.
+
